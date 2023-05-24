@@ -4,11 +4,11 @@
 
 ### user-stories :
 
-[] user can log in with google
-[] user can filter on a bunch of criteria
-[] user can add item
-[] user can delete item
-[] user can adjust item
+- [] user can log in with google
+- [] user can filter on a bunch of criteria
+- [] user can add item
+- [] user can delete item
+- [] user can adjust item
 
 ---
 
@@ -16,20 +16,26 @@
 
 --> example : [https://dribbble.com/shots/20786200-Bress-Admin-Dashboard-Analytics-UX]
 
-- components :
+#### components :
 
-[] navbar
-[] filterbuttons
-[] searchbar
-[] sidebar
-[] account bubble
-[]
+- [] navbar
+- [] filterbuttons
+- [] searchbar
+- [] sidebar
+- [] account bubble
+- [] google login
 
-- pages :
+#### pages :
 
-[] landing page
-[] main page
-[] add/adjust/delete page
+- [] landing page
+- [] main page
+- [] add/adjust/delete page
+
+#### grapql queries : 
+
+- filters & mutations :
+
+
 
 ---
 
@@ -40,7 +46,6 @@
 [] add
 [] adjust
 [] delete
-
 [] filter
 
 ---
