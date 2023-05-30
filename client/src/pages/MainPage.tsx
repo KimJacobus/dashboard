@@ -1,5 +1,7 @@
+import { Grid } from '../components/grid/Grid'
+
 const MainPage = () => {
-  return <h2>Main Page</h2>
+  return <Grid />
 }
 
 export default MainPage

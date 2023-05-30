@@ -5,12 +5,10 @@ import './App.css'
 import _Nav from './components/navbar/_Nav'
 import MainPage from './pages/MainPage'
 
-
-
 function App() {
   return (
     <BrowserRouter>
-    <_Nav/>
+      <_Nav />
       <Routes>
         <Route path="/" element={<MainPage />}></Route>
       </Routes>
