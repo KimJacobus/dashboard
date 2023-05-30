@@ -24,18 +24,16 @@
 - [] sidebar
 - [] account bubble
 - [] google login
+- [] add, delete adjust buttons
 
 #### pages :
 
 - [] landing page
 - [] main page
-- [] add/adjust/delete page
 
-#### grapql queries : 
+#### grapql queries :
 
 - filters & mutations :
-
-
 
 ---
 
