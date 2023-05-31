@@ -11,11 +11,9 @@ type _MainPageProps = {
 
 const _MainPage = ({ GridListToggle }: _MainPageProps) => {
   return (
-    <>
-      <div className="main-page m-2 rounded-lg bg-slate-400 p-3 ">
-        {GridListToggle ? <Grid posts={posts} /> : <List posts={posts} />}
-      </div>
-    </>
+    <div className="main-page">
+      {GridListToggle ? <Grid posts={posts} /> : <List posts={posts} />}
+    </div>
   )
 }
 
