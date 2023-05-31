@@ -1,14 +1,14 @@
-import { SingleItem } from './SingleItem'
+import { GridSingleItem } from './GridSingleItem'
 
-import { posts } from '../../data/fakejson'
+import { FakeJsonProps } from '../../types/FakeJsonProps'
 
-export const Grid = () => {
+export const Grid = ({ posts }: FakeJsonProps) => {
   return (
     <div className="grid-wrapper h-[32.5rem] overflow-auto">
       <div className="grid grid-cols-2 gap-1 p-1">
         {posts &&
           posts.map((post, index: number) => (
-            <SingleItem
+            <GridSingleItem
               id={post.id}
               key={index}
               comment={post.comments}

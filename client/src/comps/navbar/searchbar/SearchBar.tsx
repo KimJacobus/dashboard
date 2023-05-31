@@ -1,7 +1,8 @@
-//types
-import { NavBarProps } from '../../../types/NavBarProps'
+type SearchBarProps = {
+  setSearchModalToggle: React.Dispatch<React.SetStateAction<boolean>>
+}
 
-export const SearchBar = ({ setSearchModalToggle }: NavBarProps) => {
+export const SearchBar = ({ setSearchModalToggle }: SearchBarProps) => {
   return (
     <div
       className="SearchBar"
