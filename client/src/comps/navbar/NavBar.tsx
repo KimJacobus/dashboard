@@ -25,21 +25,23 @@ export const NavBar = ({
   handleSearchForm,
 }: NavBarProps) => {
   return (
-    <nav className="NavBar flex h-20 w-screen items-center justify-between bg-slate-100 px-5">
-      <SearchBar setSearchModalToggle={setSearchModalToggle} />
-      <GridListButton GridListToggler={GridListToggler} />
-      <AccountIcon setAccountSideBarToggle={setAccountSideBarToggle} />
-      {SearchModalToggle && (
-        <SearchModal
-          handleSearchForm={handleSearchForm}
-          setSearchModalToggle={setSearchModalToggle}
-        />
-      )}
-      {AccountSideBarToggle && (
-        <AccountSideBar setAccountSideBarToggle={setAccountSideBarToggle} />
-      )}
+    <div className="navbar-wrapper flex w-screen justify-center">
+      <nav className="NavBar m-4 flex h-20 w-full items-center justify-between rounded-lg bg-slate-100 px-5 lg:max-w-7xl">
+        <SearchBar setSearchModalToggle={setSearchModalToggle} />
+        <GridListButton GridListToggler={GridListToggler} />
+        <AccountIcon setAccountSideBarToggle={setAccountSideBarToggle} />
+        {SearchModalToggle && (
+          <SearchModal
+            handleSearchForm={handleSearchForm}
+            setSearchModalToggle={setSearchModalToggle}
+          />
+        )}
+        {AccountSideBarToggle && (
+          <AccountSideBar setAccountSideBarToggle={setAccountSideBarToggle} />
+        )}
 
-      {/* <NavBarButtons /> */}
-    </nav>
+        {/* <NavBarButtons /> */}
+      </nav>
+    </div>
   )
 }

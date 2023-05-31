@@ -4,7 +4,7 @@ import './App.css'
 //comps
 import _MainPage from './pages/_MainPage'
 import _Nav from './comps/navbar/_Nav'
-import { RootLayout } from './comps/RootLayout'
+import { BackGround } from './comps/BackGround'
 //hooks
 import { useGridListToggle } from './utils/useGridListToggle'
 function App() {
@@ -19,7 +19,7 @@ function App() {
           element={<_MainPage GridListToggle={GridListToggle} />}
         ></Route>
       </Routes>
-        <RootLayout />
+      <BackGround />
     </BrowserRouter>
   )
 }
