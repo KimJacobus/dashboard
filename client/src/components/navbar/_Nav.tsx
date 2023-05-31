@@ -4,16 +4,13 @@ import { useState } from 'react'
 import { NavBar } from './NavBar'
 
 const _Nav = () => {
-  const [BurgerToggle, setBurgerToggle] = useState<boolean>(false)
-
-  const handleBurgerClick = () => {
-    console.log('hamburger clicked')
-    setBurgerToggle((prevState) => !prevState)
-    console.log(BurgerToggle)
-  }
+  const [SearchModalToggle, setSearchModalToggle] = useState<boolean>(false)
 
   return (
-    <NavBar handleBurgerClick={handleBurgerClick} BurgerToggle={BurgerToggle} />
+    <NavBar
+      SearchModalToggle={SearchModalToggle}
+      setSearchModalToggle={setSearchModalToggle}
+    />
   )
 }
 export default _Nav

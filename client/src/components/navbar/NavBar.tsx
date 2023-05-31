@@ -1,30 +1,27 @@
 //comps
 import { NavBarButtons } from './NavButtons'
-import { SearchBar } from './SearchBar'
-import { NavBarTitle } from './NavBarTitle'
-import { BurgerMenu } from './burgermenu/BurgerMenu'
-import { SideBurgerMenu } from './burgermenu/SideBurgerMenu'
+import { SearchBar } from './searchbar/SearchBar'
+import { SearchModal } from './searchbar/SearchBarModal'
 //types
 import { NavBarProps } from '../../types/NavBarProps'
-
-
+import { AccountIcon } from './account-icon/AccountIcon'
 
 export const NavBar = ({
-  handleBurgerClick,
-  BurgerToggle,
+  SearchModalToggle,
+  setSearchModalToggle,
 }: NavBarProps) => {
   return (
-    <div className="NavBar flex h-20 w-screen items-center justify-between bg-slate-200">
-      <NavBarTitle />
-      {/* toggle burger side menu */}
+    <nav className="NavBar flex h-20 w-screen items-center justify-around bg-slate-200 ps-5">
+      <SearchBar setSearchModalToggle={setSearchModalToggle} />
+      <AccountIcon />
+      {SearchModalToggle && (
+        <SearchModal
+          SearchModalToggle={SearchModalToggle}
+          setSearchModalToggle={setSearchModalToggle}
+        />
+      )}
 
-
-      {BurgerToggle ? <SideBurgerMenu handleBurgerClick={handleBurgerClick}/> : null}
-      <BurgerMenu handleBurgerClick={handleBurgerClick} />
-
-      {/* desktop */}
-      {/* <SearchBar /> */}
       {/* <NavBarButtons /> */}
-    </div>
+    </nav>
   )
 }
