@@ -21,7 +21,6 @@ function App() {
   return (
     <BrowserRouter>
       <_Nav
-        GridListToggler={GridListToggler}
         SearchModalToggle={SearchModalToggle}
         setSearchModalToggle={setSearchModalToggle}
         AccountSideBarToggle={AccountSideBarToggle}
@@ -33,6 +32,7 @@ function App() {
           element={
             <_MainPage
               GridListToggle={GridListToggle}
+              GridListToggler={GridListToggler}
               ButtonStates={ButtonStates}
               handleSelectionButton={handleSelectionButton}
             />

@@ -4,26 +4,29 @@ import { List } from './comps/list/List'
 import _Nav from '../../comps/navbar/_Nav'
 //data
 import { posts } from '../../data/fakejson'
+import { MainPageHeader } from './comps/mainpage-header/MainPageHeader'
 
 type _MainPageProps = {
   GridListToggle: boolean
   ButtonStates: boolean[]
+  GridListToggler: () => void
   handleSelectionButton: (index: number) => void
 }
 
 const _MainPage = ({
   GridListToggle,
+  GridListToggler,
   ButtonStates,
   handleSelectionButton,
 }: _MainPageProps) => {
   return (
     <div className="mainpage-wrapper flex w-screen justify-center">
       <div className="main-page mx-4 w-full rounded-lg bg-slate-50 p-2 lg:max-w-7xl">
-        <div className="main-info flex justify-between pt-16">
-          <h2 className="text-7xl">List!</h2>
-          <h2 className="text-3xl">Total</h2>
-          <h2 className="text-3xl">List!</h2>
-        </div>
+        <MainPageHeader
+          posts={posts}
+          GridListToggle={GridListToggle}
+          GridListToggler={GridListToggler}
+        />
 
         {GridListToggle ? (
           <Grid posts={posts} />

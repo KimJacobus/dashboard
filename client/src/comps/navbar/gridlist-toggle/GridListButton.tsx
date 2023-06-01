@@ -1,5 +1,3 @@
-//hooks
-
 type GridListButtonProps = {
   GridListToggler: () => void
 }

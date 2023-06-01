@@ -11,7 +11,6 @@ type NavBarProps = {
   SearchModalToggle: boolean
   AccountSideBarToggle: boolean
   handleSearchForm: () => void
-  GridListToggler: () => void
   setSearchModalToggle: React.Dispatch<React.SetStateAction<boolean>>
   setAccountSideBarToggle: React.Dispatch<React.SetStateAction<boolean>>
 }
@@ -21,14 +20,12 @@ export const NavBar = ({
   AccountSideBarToggle,
   setSearchModalToggle,
   setAccountSideBarToggle,
-  GridListToggler,
   handleSearchForm,
 }: NavBarProps) => {
   return (
     <div className="navbar-wrapper flex w-screen justify-center">
       <nav className="NavBar m-4 flex h-20 w-full items-center justify-between rounded-lg bg-slate-100 px-5 lg:max-w-7xl">
         <SearchBar setSearchModalToggle={setSearchModalToggle} />
-        <GridListButton GridListToggler={GridListToggler} />
         <AccountIcon setAccountSideBarToggle={setAccountSideBarToggle} />
         {SearchModalToggle && (
           <SearchModal

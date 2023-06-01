@@ -2,7 +2,6 @@
 import { NavBar } from './NavBar'
 
 type _NavProps = {
-  GridListToggler: () => void
   SearchModalToggle: boolean
   AccountSideBarToggle: boolean
   setSearchModalToggle: React.Dispatch<React.SetStateAction<boolean>>
@@ -10,7 +9,6 @@ type _NavProps = {
 }
 
 const _Nav = ({
-  GridListToggler,
   SearchModalToggle,
   AccountSideBarToggle,
   setAccountSideBarToggle,
@@ -20,7 +18,6 @@ const _Nav = ({
 
   return (
     <NavBar
-      GridListToggler={GridListToggler}
       SearchModalToggle={SearchModalToggle}
       AccountSideBarToggle={AccountSideBarToggle}
       setAccountSideBarToggle={setAccountSideBarToggle}
