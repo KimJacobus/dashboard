@@ -24,19 +24,20 @@ export const NavBar = ({
 }: NavBarProps) => {
   return (
     <div className="navbar-wrapper flex w-screen justify-center">
+      <AccountSideBar
+        AccountSideBarToggle={AccountSideBarToggle}
+        setAccountSideBarToggle={setAccountSideBarToggle}
+      />
       <nav className="NavBar m-4 flex h-20 w-full items-center justify-between rounded-lg bg-slate-100 px-5 lg:max-w-7xl">
         <SearchBar setSearchModalToggle={setSearchModalToggle} />
-        <AccountIcon setAccountSideBarToggle={setAccountSideBarToggle} />
         {SearchModalToggle && (
           <SearchModal
             handleSearchForm={handleSearchForm}
+            SearchModalToggle={SearchModalToggle}
             setSearchModalToggle={setSearchModalToggle}
           />
         )}
-        {AccountSideBarToggle && (
-          <AccountSideBar setAccountSideBarToggle={setAccountSideBarToggle} />
-        )}
-
+        <AccountIcon setAccountSideBarToggle={setAccountSideBarToggle} />
         {/* <NavBarButtons /> */}
       </nav>
     </div>

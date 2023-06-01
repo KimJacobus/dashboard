@@ -18,7 +18,7 @@ export const MainPageHeader = ({
     <>
       <div className="main-info flex w-full cursor-default justify-between px-2 pt-8">
         <div className="flex flex-col">
-          <h2 className="text-7xl font-thin">
+          <h2 className="text-6xl font-thin">
             {GridListToggle ? 'Grid' : 'List'}
           </h2>
           <p className="ps-1 font-mono text-sm font-bold">

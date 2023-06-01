@@ -19,9 +19,7 @@ export const GridListButton = ({
               ? 'translate-x-full transform transition-transform'
               : 'translate-x-0 transform transition-transform'
           }`}
-        >
-          {/* <img src="/x-square.svg"></img> */}
-        </div>
+        ></div>
       </div>
       <p className="pt-1 font-mono text-xs">list/grid</p>
     </div>
