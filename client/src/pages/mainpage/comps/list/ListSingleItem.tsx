@@ -4,10 +4,13 @@ type ListSingleItemProps = {
   image: string
 }
 
-export const ListSingleItem = ({ id }: ListSingleItemProps) => {
+export const ListSingleItem = ({ id, comment }: ListSingleItemProps) => {
   return (
     <div className="single-item h-8 w-64 rounded-md bg-gray-200 outline outline-1 outline-gray-400">
-      <p>{id}</p>
+      <p>
+        {id}
+        {comment}
+      </p>
     </div>
   )
 }

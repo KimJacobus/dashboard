@@ -1,9 +1,9 @@
 //comps
-import { Grid } from '../comps/grid/Grid'
-import { List } from '../comps/list/List'
-import _Nav from '../comps/navbar/_Nav'
+import { Grid } from './comps/grid/Grid'
+import { List } from './comps/list/List'
+import _Nav from '../../comps/navbar/_Nav'
 //data
-import { posts } from '../data/fakejson'
+import { posts } from '../../data/fakejson'
 
 type _MainPageProps = {
   GridListToggle: boolean

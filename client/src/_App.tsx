@@ -4,9 +4,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 //styles
 import './App.css'
 //comps
-import _MainPage from './pages/_MainPage'
+import _MainPage from './pages/mainpage/_MainPage'
 import _Nav from './comps/navbar/_Nav'
-import { BackGround } from './comps/BackGround'
+import { BackGround } from './pages/BackGround'
 //hooks
 import { useGridListToggle } from './utils/useGridListToggle'
 import { useListSelectionButton } from './utils/useListSelectionButton'
