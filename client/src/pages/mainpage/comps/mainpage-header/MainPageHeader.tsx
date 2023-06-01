@@ -16,7 +16,7 @@ export const MainPageHeader = ({
 }: MainPageHeader) => {
   return (
     <>
-      <div className="main-info flex w-full justify-between px-2 pt-8">
+      <div className="main-info flex w-full cursor-default justify-between px-2 pt-8">
         <div className="flex flex-col">
           <h2 className="text-7xl font-thin">
             {GridListToggle ? 'Grid' : 'List'}
@@ -25,7 +25,10 @@ export const MainPageHeader = ({
             {posts.length} Total
           </p>
         </div>
-        <GridListButton GridListToggler={GridListToggler} />
+        <GridListButton
+          GridListToggle={GridListToggle}
+          GridListToggler={GridListToggler}
+        />
       </div>
 
       <hr className="my-2 w-full text-xl"></hr>
