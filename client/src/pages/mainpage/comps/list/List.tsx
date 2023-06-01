@@ -1,4 +1,5 @@
-import { FakeJsonProps } from '../../types/FakeJsonProps'
+import { FakeJsonProps } from '../../../../types/FakeJsonProps'
+
 //comps
 import { ListSingleItem } from './ListSingleItem'
 import { ListSelectionButton } from './ListSelectionButton'
@@ -15,8 +16,8 @@ export const List = ({
   handleSelectionButton,
 }: ListProps) => {
   return (
-    <div className="flex-wrapper flex justify-center overflow-y-scroll">
-      <div className="list-container">
+    <div className="flex-wrapper flex h-[32.5rem] justify-center overflow-auto">
+      <div className="list-container lg:grid lg:grid-cols-2 lg:gap-2">
         {posts &&
           posts.map((post, index: number) => (
             <div
