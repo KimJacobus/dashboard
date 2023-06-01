@@ -1,18 +1,24 @@
 import { FakeJsonProps } from '../../types/FakeJsonProps'
+//comps
 import { ListSingleItem } from './ListSingleItem'
+import { ListSelectionButton } from './ListSelectionButton'
 
 export const List = ({ posts }: FakeJsonProps) => {
   return (
-    <div className="grid-wrapper h-[32.5rem] overflow-auto">
-      <div className="grid grid-cols-1 gap-y-2 px-2">
+    <div className="flex-wrapper flex justify-center overflow-y-scroll">
+      <div className="list-container">
         {posts &&
           posts.map((post, index: number) => (
-            <ListSingleItem
-              id={post.id}
-              key={index}
-              comment={post.comments}
-              image={post.image}
-            />
+            <div className="flex items-center gap-2 py-2">
+              <ListSelectionButton />
+
+              <ListSingleItem
+                id={post.id}
+                key={index}
+                comment={post.comments}
+                image={post.image}
+              />
+            </div>
           ))}
       </div>
     </div>

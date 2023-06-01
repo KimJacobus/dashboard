@@ -1,3 +1,5 @@
+//react
+import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 //styles
 import './App.css'
@@ -9,10 +11,19 @@ import { BackGround } from './comps/BackGround'
 import { useGridListToggle } from './utils/useGridListToggle'
 function App() {
   const { GridListToggle, GridListToggler } = useGridListToggle()
+  const [SearchModalToggle, setSearchModalToggle] = useState<boolean>(false)
+  const [AccountSideBarToggle, setAccountSideBarToggle] =
+    useState<boolean>(false)
 
   return (
     <BrowserRouter>
-      <_Nav GridListToggler={GridListToggler} />
+      <_Nav
+        GridListToggler={GridListToggler}
+        SearchModalToggle={SearchModalToggle}
+        setSearchModalToggle={setSearchModalToggle}
+        AccountSideBarToggle={AccountSideBarToggle}
+        setAccountSideBarToggle={setAccountSideBarToggle}
+      />
       <Routes>
         <Route
           path="/"
