@@ -9,7 +9,7 @@ export const AccountSideBar = ({
 }: AccountSideBarProps) => {
   return (
     <div
-      className={`absolute right-0 top-0 z-10 m-4 h-[94%] w-[92%] translate-x-0 rounded-lg bg-indigo-900 p-2 outline outline-2 outline-indigo-500 transition lg:w-[50%] ${
+      className={`absolute right-0 top-0 z-10 m-4 h-[94%] w-[92%] translate-x-0 rounded-lg bg-indigo-100 p-2 outline outline-2 outline-indigo-500 transition lg:w-[50%] ${
         AccountSideBarToggle ? '' : 'translate-x-[105%]'
       }`}
       onClick={() => setAccountSideBarToggle((prevState) => !prevState)}
