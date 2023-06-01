@@ -1,4 +1,3 @@
-import { useState } from 'react'
 //comps
 import { NavBar } from './NavBar'
 

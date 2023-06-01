@@ -9,8 +9,11 @@ import _Nav from './comps/navbar/_Nav'
 import { BackGround } from './comps/BackGround'
 //hooks
 import { useGridListToggle } from './utils/useGridListToggle'
+import { useListSelectionButton } from './utils/useListSelectionButton'
 function App() {
   const { GridListToggle, GridListToggler } = useGridListToggle()
+  const { ButtonStates, handleSelectionButton } = useListSelectionButton()
+
   const [SearchModalToggle, setSearchModalToggle] = useState<boolean>(false)
   const [AccountSideBarToggle, setAccountSideBarToggle] =
     useState<boolean>(false)
@@ -27,7 +30,13 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<_MainPage GridListToggle={GridListToggle} />}
+          element={
+            <_MainPage
+              GridListToggle={GridListToggle}
+              ButtonStates={ButtonStates}
+              handleSelectionButton={handleSelectionButton}
+            />
+          }
         ></Route>
       </Routes>
       <BackGround />
