@@ -1,8 +1,10 @@
-import { NavBarProps } from '../../../types/NavBarProps'
+type SideBurgerMenuProps = {
+  setSearchModalToggle: React.Dispatch<React.SetStateAction<boolean>>
+}
 
 export const SideBurgerMenu = ({
   setSearchModalToggle: setBurgerToggle,
-}: NavBarProps) => {
+}: SideBurgerMenuProps) => {
   return (
     <div className="SideBurgerMenu absolute">
       <div
