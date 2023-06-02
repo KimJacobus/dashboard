@@ -24,13 +24,13 @@ export const AccountSideBar = ({
       gsap.from(componentRef.current, {
         x: '0',
         opacity: '0',
-        duration: 0.1,
+        duration: 0.01,
         ease: Circ.easeIn,
       })
       gsap.to(componentRef.current, {
         x: '1',
         opacity: '1',
-        duration: 0.1,
+        duration: 0.01,
         ease: Circ.easeOut,
       })
     }

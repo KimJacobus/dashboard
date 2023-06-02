@@ -2,6 +2,7 @@
 import { Grid } from './comps/grid/Grid'
 import { List } from './comps/list/List'
 import _Nav from '../../comps/navbar/_Nav'
+import { SelectionToast } from './comps/SelectionToast'
 //data
 import { posts } from '../../data/fakejson'
 import { MainPageHeader } from './comps/mainpage-header/MainPageHeader'
@@ -9,18 +10,21 @@ import { MainPageHeader } from './comps/mainpage-header/MainPageHeader'
 type _MainPageProps = {
   GridListToggle: boolean
   ButtonStates: boolean[]
+  Selection: number[]
   GridListToggler: () => void
   handleSelectionButton: (index: number) => void
+  SelectionSelector: (id: number) => void
 }
 
 const _MainPage = ({
   GridListToggle,
   GridListToggler,
+  Selection,
   ButtonStates,
   handleSelectionButton,
+  SelectionSelector,
 }: _MainPageProps) => {
   return (
-
     <div className="mainpage-wrapper flex justify-center">
       <div className="main-page mx-4 w-full rounded-lg bg-slate-50 p-2 lg:max-w-7xl">
         <MainPageHeader
@@ -35,9 +39,11 @@ const _MainPage = ({
           <List
             ButtonStates={ButtonStates}
             handleSelectionButton={handleSelectionButton}
+            SelectionSelector={SelectionSelector}
             posts={posts}
           />
         )}
+        {Selection.length > 0 && <SelectionToast Selection={Selection} />}
       </div>
     </div>
   )
