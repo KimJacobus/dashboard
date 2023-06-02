@@ -1,3 +1,6 @@
+//comps
+import { AccountIcon } from './AccountIcon'
+
 type AccountSideBarProps = {
   AccountSideBarToggle: boolean
   setAccountSideBarToggle: React.Dispatch<React.SetStateAction<boolean>>
@@ -14,11 +17,11 @@ export const AccountSideBar = ({
       }`}
       onClick={() => setAccountSideBarToggle((prevState) => !prevState)}
     >
-      <h2>account dashboard</h2>
-      <p>darkmode</p>
-      <p>info</p>
-      <p>change pic</p>
-      <p>log out</p>
+      <div className="flex w-full flex-col gap-4 items-center">
+        <div className="account-button h-20 w-20 rounded-full bg-slate-800"></div>
+        <h2 className="text-2xl">username</h2>
+        <hr className="h-[2px] w-full bg-indigo-500 text-xl"></hr>
+      </div>
     </div>
   )
 }
