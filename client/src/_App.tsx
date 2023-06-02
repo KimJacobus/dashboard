@@ -10,8 +10,10 @@ import { BackGround } from './pages/BackGround'
 //hooks
 import { useGridListToggle } from './utils/useGridListToggle'
 import { useListSelectionButton } from './utils/useListSelectionButton'
+import { useDarkModeToggle } from './utils/useDarkModeToggle'
 function App() {
   const { GridListToggle, GridListToggler } = useGridListToggle()
+  const { DarkModeToggle, DarkModeToggler } = useDarkModeToggle()
   const { ButtonStates, handleSelectionButton } = useListSelectionButton()
 
   const [SearchModalToggle, setSearchModalToggle] = useState<boolean>(false)
@@ -21,6 +23,8 @@ function App() {
   return (
     <BrowserRouter>
       <_Nav
+        DarkModeToggle={DarkModeToggle}
+        DarkModeToggler={DarkModeToggler}
         SearchModalToggle={SearchModalToggle}
         setSearchModalToggle={setSearchModalToggle}
         AccountSideBarToggle={AccountSideBarToggle}

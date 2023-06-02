@@ -20,7 +20,8 @@ const _MainPage = ({
   handleSelectionButton,
 }: _MainPageProps) => {
   return (
-    <div className="mainpage-wrapper flex h-full w-screen justify-center">
+
+    <div className="mainpage-wrapper flex justify-center">
       <div className="main-page mx-4 w-full rounded-lg bg-slate-50 p-2 lg:max-w-7xl">
         <MainPageHeader
           posts={posts}
