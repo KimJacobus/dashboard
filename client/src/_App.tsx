@@ -22,7 +22,9 @@ function App() {
   const { ButtonStates, handleSelectionButton } = useListSelectionButton()
   const { SelectionSelector, Selection } = useSelection()
   //hooks
-  const { fetchPplResponse, FetchPeople } = useFilterButtons()
+  const { fetchPplResponse, FetchPeople } = useFilterButtons({
+    input: { filter: '', argument: '' },
+  })
 
   //states
   const [SearchModalToggle, setSearchModalToggle] = useState<boolean>(false)
