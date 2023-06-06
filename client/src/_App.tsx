@@ -1,9 +1,10 @@
 //react
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 //styles
 import './App.css'
 //comps
+import _queryTest from './comps/_queryTest'
 import _MainPage from './pages/mainpage/_MainPage'
 import _Nav from './comps/navbar/_Nav'
 import { BackGround } from './pages/BackGround'
@@ -12,13 +13,18 @@ import { useGridListToggle } from './utils/useGridListToggle'
 import { useListSelectionButton } from './utils/useListSelectionButton'
 import { useDarkModeToggle } from './utils/useDarkModeToggle'
 import { useSelection } from './utils/useSelection'
+import { useFilterButtons } from './hooks/useFilterButtons'
 
 function App() {
+  //utils
   const { GridListToggle, GridListToggler } = useGridListToggle()
   const { DarkModeToggle, DarkModeToggler } = useDarkModeToggle()
   const { ButtonStates, handleSelectionButton } = useListSelectionButton()
   const { SelectionSelector, Selection } = useSelection()
+  //hooks
+  const { fetchPplResponse, FetchPeople } = useFilterButtons()
 
+  //states
   const [SearchModalToggle, setSearchModalToggle] = useState<boolean>(false)
   const [AccountSideBarToggle, setAccountSideBarToggle] =
     useState<boolean>(false)
@@ -32,6 +38,7 @@ function App() {
         setSearchModalToggle={setSearchModalToggle}
         AccountSideBarToggle={AccountSideBarToggle}
         setAccountSideBarToggle={setAccountSideBarToggle}
+        FetchPeople={FetchPeople}
       />
       <Routes>
         <Route
@@ -46,6 +53,10 @@ function App() {
               SelectionSelector={SelectionSelector}
             />
           }
+        ></Route>
+        <Route
+          path="/test"
+          element={<_queryTest fetchPplResponse={fetchPplResponse} />}
         ></Route>
       </Routes>
       <BackGround />

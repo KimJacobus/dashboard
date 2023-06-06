@@ -3,11 +3,13 @@ import { FilterButtons } from '../filter/FilterButtons'
 type SearchModalInputProps = {
   SearchModalToggle: boolean
   setSearchModalToggle: React.Dispatch<React.SetStateAction<boolean>>
+  FetchPeople: ({}) => void
 }
 
 export const SearchModalInput = ({
   SearchModalToggle,
   setSearchModalToggle,
+  FetchPeople,
 }: SearchModalInputProps) => {
   return (
     <form className="ModalCard absolute left-12 top-10 z-10 h-2/4 w-3/4 rounded-lg bg-indigo-100 outline outline-2 outline-indigo-500">
@@ -27,9 +29,8 @@ export const SearchModalInput = ({
           src="/x-square.svg"
           alt=""
         />
-
       </div>
-        <FilterButtons />
+      <FilterButtons FetchPeople={FetchPeople} />
     </form>
   )
 }

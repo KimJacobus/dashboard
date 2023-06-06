@@ -4,14 +4,15 @@ type SearchModalProps = {
   SearchModalToggle: boolean
   setSearchModalToggle: React.Dispatch<React.SetStateAction<boolean>>
   handleSearchForm: () => void
+  FetchPeople: ({}) => void
 }
 
 export const SearchModal = ({
   SearchModalToggle,
   setSearchModalToggle,
   handleSearchForm,
+  FetchPeople,
 }: SearchModalProps) => {
-  console.log(SearchModalToggle)
   return (
     <>
       <div
@@ -21,6 +22,7 @@ export const SearchModal = ({
       <SearchModalInput
         SearchModalToggle={SearchModalToggle}
         setSearchModalToggle={setSearchModalToggle}
+        FetchPeople={FetchPeople}
       />
     </>
   )

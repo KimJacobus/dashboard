@@ -13,6 +13,7 @@ type NavBarProps = {
   handleSearchForm: () => void
   setSearchModalToggle: React.Dispatch<React.SetStateAction<boolean>>
   setAccountSideBarToggle: React.Dispatch<React.SetStateAction<boolean>>
+  FetchPeople: ({}) => void
 }
 
 export const NavBar = ({
@@ -23,6 +24,7 @@ export const NavBar = ({
   setAccountSideBarToggle,
   DarkModeToggler,
   handleSearchForm,
+  FetchPeople,
 }: NavBarProps) => {
   return (
     <div className="navbar-wrapper flex justify-center">
@@ -42,6 +44,7 @@ export const NavBar = ({
             handleSearchForm={handleSearchForm}
             SearchModalToggle={SearchModalToggle}
             setSearchModalToggle={setSearchModalToggle}
+            FetchPeople={FetchPeople}
           />
         )}
         <AccountIcon setAccountSideBarToggle={setAccountSideBarToggle} />
