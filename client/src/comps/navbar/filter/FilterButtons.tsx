@@ -1,23 +1,19 @@
 import { SingleFilterButton } from './SingleFilterButton'
 import { ButtonInput } from './ButtonInputs'
 
+import { fetchPeopleProps } from '../../../types/inputProps'
+
 type FilterButtonsProps = {
-  FetchPeople: ({}) => void
+  fetchPeople: ({ input }: fetchPeopleProps) => void
   setVariables: React.Dispatch<React.SetStateAction<{}>>
 }
 
-export const FilterButtons = ({
-  FetchPeople,
-  setVariables,
-}: FilterButtonsProps) => {
-  const clickHandler = (
-    e: React.MouseEvent<HTMLButtonElement>,
-    filter: String,
-    argument: String
-  ) => {
-    e.preventDefault()
-    FetchPeople({ filter, argument })
-  }
+export const FilterButtons = ({ fetchPeople, setVariables }: FilterButtonsProps) => {
+  // const clickHandler = (e: React.MouseEvent<HTMLButtonElement>, filter: string, argument: string) => {
+  //   e.preventDefault()
+  //   fetchPeople({ input: { filter, argument } })
+  // }
+
 
   return (
     <div className="f-buttons-wrapper flex justify-center">
@@ -28,14 +24,7 @@ export const FilterButtons = ({
             buttonText={button.text}
             filter={button.input.filter}
             argument={button.input.argument}
-            onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
-              clickHandler(e, {
-                input: {
-                  filter: 'passed through!',
-                  argument: 'passed through!',
-                },
-              })
-            }
+            fetchPeople={fetchPeople}
           />
         ))}
       </div>

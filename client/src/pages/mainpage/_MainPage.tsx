@@ -25,13 +25,9 @@ const _MainPage = ({
   SelectionSelector,
 }: _MainPageProps) => {
   return (
-    <div className="mainpage-wrapper flex justify-center">
-      <div className="main-page mx-4 w-full rounded-lg bg-slate-50 p-2 lg:max-w-7xl">
-        <MainPageHeader
-          posts={posts}
-          GridListToggle={GridListToggle}
-          GridListToggler={GridListToggler}
-        />
+    <div className="mainpage-wrapper col-span-8 row-span-5 flex justify-center">
+      <div className="main-page mx-4 w-full rounded-lg bg-slate-50 p-2 ">
+        <MainPageHeader posts={posts} GridListToggle={GridListToggle} GridListToggler={GridListToggler} />
 
         {GridListToggle ? (
           <Grid posts={posts} />
@@ -43,6 +39,7 @@ const _MainPage = ({
             posts={posts}
           />
         )}
+
         {Selection.length > 0 && <SelectionToast selection={selection} />}
       </div>
     </div>

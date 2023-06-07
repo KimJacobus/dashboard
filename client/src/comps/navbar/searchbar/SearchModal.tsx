@@ -1,10 +1,12 @@
 import { SearchModalInput } from './SearchModalInput'
+import { fetchPeopleProps } from '../../../types/inputProps'
+
 
 type SearchModalProps = {
   SearchModalToggle: boolean
   setSearchModalToggle: React.Dispatch<React.SetStateAction<boolean>>
   handleSearchForm: () => void
-  FetchPeople: ({}) => void
+  fetchPeople: ({ input }: fetchPeopleProps) => void
   setVariables: React.Dispatch<React.SetStateAction<{}>>
 }
 
@@ -12,7 +14,7 @@ export const SearchModal = ({
   SearchModalToggle,
   setSearchModalToggle,
   handleSearchForm,
-  FetchPeople,
+  fetchPeople,
   setVariables
 }: SearchModalProps) => {
   return (
@@ -24,7 +26,7 @@ export const SearchModal = ({
       <SearchModalInput
         SearchModalToggle={SearchModalToggle}
         setSearchModalToggle={setSearchModalToggle}
-        FetchPeople={FetchPeople}
+        fetchPeople={fetchPeople}
         setVariables={setVariables}
       />
     </>

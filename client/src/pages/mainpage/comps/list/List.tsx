@@ -11,12 +11,7 @@ type ListProps = {
   SelectionSelector: (id: number) => void
 }
 
-export const List = ({
-  posts,
-  ButtonStates,
-  handleSelectionButton,
-  SelectionSelector,
-}: ListProps) => {
+export const List = ({ posts, ButtonStates, handleSelectionButton, SelectionSelector }: ListProps) => {
   return (
     <div className="flex-wrapper flex h-[32.5rem] justify-center overflow-auto">
       <div className="list-container lg:grid lg:grid-cols-2 lg:gap-2">
@@ -31,11 +26,7 @@ export const List = ({
                 SelectionSelector={SelectionSelector}
               />
 
-              <ListSingleItem
-                id={post.id}
-                comment={post.comments}
-                image={post.image}
-              />
+              <ListSingleItem id={post.id} comment={post.comments} image={post.image} />
             </div>
           ))}
       </div>

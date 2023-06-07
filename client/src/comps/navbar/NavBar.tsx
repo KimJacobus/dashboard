@@ -4,6 +4,7 @@ import { SearchModal } from './searchbar/SearchModal'
 import { AccountSideBar } from './dashboard/AccountSideBar'
 //types
 import { AccountIcon } from './dashboard/AccountIcon'
+import { fetchPeopleProps } from '../../types/inputProps'
 
 type NavBarProps = {
   DarkModeToggle: boolean
@@ -13,7 +14,7 @@ type NavBarProps = {
   handleSearchForm: () => void
   setSearchModalToggle: React.Dispatch<React.SetStateAction<boolean>>
   setAccountSideBarToggle: React.Dispatch<React.SetStateAction<boolean>>
-  FetchPeople: ({}) => void
+  fetchPeople: ({ input }: fetchPeopleProps) => void
   setVariables: React.Dispatch<React.SetStateAction<{}>>
 }
 
@@ -25,7 +26,7 @@ export const NavBar = ({
   setAccountSideBarToggle,
   DarkModeToggler,
   handleSearchForm,
-  FetchPeople,
+  fetchPeople,
   setVariables,
 }: NavBarProps) => {
   return (
@@ -39,14 +40,14 @@ export const NavBar = ({
         />
       )}
 
-      <nav className="NavBar m-4 flex h-20 w-full items-center justify-between rounded-lg bg-slate-100 px-5 lg:max-w-7xl">
+      <nav className="NavBar m-4 flex h-20 w-full items-center justify-between rounded-lg bg-slate-100 px-5 lg:w-7xl">
         <SearchBar setSearchModalToggle={setSearchModalToggle} />
         {SearchModalToggle && (
           <SearchModal
             handleSearchForm={handleSearchForm}
             SearchModalToggle={SearchModalToggle}
             setSearchModalToggle={setSearchModalToggle}
-            FetchPeople={FetchPeople}
+            fetchPeople={fetchPeople}
             setVariables={setVariables}
           />
         )}

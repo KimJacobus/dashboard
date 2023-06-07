@@ -1,16 +1,17 @@
 import { FilterButtons } from '../filter/FilterButtons'
+import { fetchPeopleProps } from '../../../types/inputProps'
 
 type SearchModalInputProps = {
   SearchModalToggle: boolean
   setSearchModalToggle: React.Dispatch<React.SetStateAction<boolean>>
-  FetchPeople: ({}) => void
+  fetchPeople: ({ input }: fetchPeopleProps) => void
   setVariables: React.Dispatch<React.SetStateAction<{}>>
 }
 
 export const SearchModalInput = ({
   SearchModalToggle,
   setSearchModalToggle,
-  FetchPeople,
+  fetchPeople,
   setVariables,
 }: SearchModalInputProps) => {
   return (
@@ -32,7 +33,7 @@ export const SearchModalInput = ({
           alt=""
         />
       </div>
-      <FilterButtons FetchPeople={FetchPeople} setVariables={setVariables} />
+      <FilterButtons fetchPeople={fetchPeople} setVariables={setVariables} />
     </form>
   )
 }

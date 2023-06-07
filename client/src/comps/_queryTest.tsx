@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { getPeopleQuery } from '../queries/queries'
 import { useFilterButtons } from '../hooks/useFilterButtons'
 
-const _queryTest = ({ fetchPplResponse }: any) => {
+const _queryTest = ({ fetchPplResponse, FTest }: any) => {
   const { loading, error, data } = fetchPplResponse
 
   if (loading) return <p>Loading...</p>
