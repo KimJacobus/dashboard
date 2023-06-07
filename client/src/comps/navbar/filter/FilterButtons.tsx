@@ -3,9 +3,22 @@ import { ButtonInput } from './ButtonInputs'
 
 type FilterButtonsProps = {
   FetchPeople: ({}) => void
+  setVariables: React.Dispatch<React.SetStateAction<{}>>
 }
 
-export const FilterButtons = ({ FetchPeople }: FilterButtonsProps) => {
+export const FilterButtons = ({
+  FetchPeople,
+  setVariables,
+}: FilterButtonsProps) => {
+  const clickHandler = (
+    e: React.MouseEvent<HTMLButtonElement>,
+    filter: String,
+    argument: String
+  ) => {
+    e.preventDefault()
+    FetchPeople({ filter, argument })
+  }
+
   return (
     <div className="f-buttons-wrapper flex justify-center">
       <div className="filter-buttons grid grid-cols-3 gap-2">
@@ -15,11 +28,11 @@ export const FilterButtons = ({ FetchPeople }: FilterButtonsProps) => {
             buttonText={button.text}
             filter={button.input.filter}
             argument={button.input.argument}
-            onClick={() =>
-              FetchPeople({
+            onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
+              clickHandler(e, {
                 input: {
-                  filter: button.input.filter,
-                  argument: button.input.argument,
+                  filter: 'passed through!',
+                  argument: 'passed through!',
                 },
               })
             }

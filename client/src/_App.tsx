@@ -20,9 +20,9 @@ function App() {
   const { GridListToggle, GridListToggler } = useGridListToggle()
   const { DarkModeToggle, DarkModeToggler } = useDarkModeToggle()
   const { ButtonStates, handleSelectionButton } = useListSelectionButton()
-  const { SelectionSelector, Selection } = useSelection()
+  const { SelectionSelector, selection } = useSelection()
   //hooks
-  const { fetchPplResponse, FetchPeople } = useFilterButtons({
+  const { fetchPplResponse, FetchPeople, setVariables } = useFilterButtons({
     input: { filter: '', argument: '' },
   })
 
@@ -41,6 +41,7 @@ function App() {
         AccountSideBarToggle={AccountSideBarToggle}
         setAccountSideBarToggle={setAccountSideBarToggle}
         FetchPeople={FetchPeople}
+        setVariables={setVariables}
       />
       <Routes>
         <Route
@@ -50,7 +51,7 @@ function App() {
               GridListToggle={GridListToggle}
               GridListToggler={GridListToggler}
               ButtonStates={ButtonStates}
-              Selection={Selection}
+              selection={selection}
               handleSelectionButton={handleSelectionButton}
               SelectionSelector={SelectionSelector}
             />

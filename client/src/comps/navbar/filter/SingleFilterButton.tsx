@@ -2,7 +2,7 @@ type SingleFilterButtonProps = {
   buttonText: string
   filter: string
   argument: string
-  onClick: () => void
+  onClick: (e:React.MouseEvent<HTMLButtonElement>) => void
 }
 
 export const SingleFilterButton = ({ buttonText }: SingleFilterButtonProps) => {

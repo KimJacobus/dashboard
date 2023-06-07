@@ -9,6 +9,7 @@ type _NavProps = {
   setAccountSideBarToggle: React.Dispatch<React.SetStateAction<boolean>>
   DarkModeToggler: () => void
   FetchPeople: ({}) => void
+  setVariables: React.Dispatch<React.SetStateAction<{}>>
 }
 
 const _Nav = ({
@@ -19,8 +20,11 @@ const _Nav = ({
   setSearchModalToggle,
   DarkModeToggler,
   FetchPeople,
+  setVariables
 }: _NavProps) => {
   const handleSearchForm: () => void = () => {}
+
+  
 
   return (
     <NavBar
@@ -32,6 +36,7 @@ const _Nav = ({
       setSearchModalToggle={setSearchModalToggle}
       handleSearchForm={handleSearchForm}
       FetchPeople={FetchPeople}
+      setVariables={setVariables}
     />
   )
 }

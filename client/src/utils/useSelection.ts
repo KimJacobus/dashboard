@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 export const useSelection = () => {
-  const [Selection, setSelection] = useState<number[]>([])
+  const [selection, setSelection] = useState<number[]>([])
 
   const SelectionSelector = (id: number) => {
     setSelection((prevStates) => {
@@ -16,5 +16,5 @@ export const useSelection = () => {
     })
   }
 
-  return { SelectionSelector, Selection }
+  return { SelectionSelector, selection }
 }

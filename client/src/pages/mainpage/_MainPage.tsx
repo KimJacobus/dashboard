@@ -10,7 +10,7 @@ import { MainPageHeader } from './comps/mainpage-header/MainPageHeader'
 type _MainPageProps = {
   GridListToggle: boolean
   ButtonStates: boolean[]
-  Selection: number[]
+  selection: number[]
   GridListToggler: () => void
   handleSelectionButton: (index: number) => void
   SelectionSelector: (id: number) => void
@@ -19,7 +19,7 @@ type _MainPageProps = {
 const _MainPage = ({
   GridListToggle,
   GridListToggler,
-  Selection,
+  selection,
   ButtonStates,
   handleSelectionButton,
   SelectionSelector,
@@ -43,7 +43,7 @@ const _MainPage = ({
             posts={posts}
           />
         )}
-        {Selection.length > 0 && <SelectionToast Selection={Selection} />}
+        {Selection.length > 0 && <SelectionToast selection={selection} />}
       </div>
     </div>
   )

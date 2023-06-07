@@ -15,6 +15,8 @@
 ### client :
 
 --> example : [https://dribbble.com/shots/20786200-Bress-Admin-Dashboard-Analytics-UX]
+: [https://dribbble.com/shots/20860246-Team-management-settings-Untitled-UI]
+: 
 
 #### components :
 
