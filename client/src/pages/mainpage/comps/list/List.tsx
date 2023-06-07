@@ -13,7 +13,7 @@ type ListProps = {
 
 export const List = ({ posts, ButtonStates, handleSelectionButton, SelectionSelector }: ListProps) => {
   return (
-    <div className="flex-wrapper flex h-[32.5rem] justify-center overflow-auto">
+    <div className="flex-wrapper flex h-[33rem] justify-center overflow-auto lg:h-[35rem]">
       <div className="list-container lg:grid lg:grid-cols-2 lg:gap-2">
         {posts &&
           posts.map((post, index: number) => (

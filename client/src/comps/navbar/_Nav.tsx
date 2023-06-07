@@ -27,7 +27,7 @@ const _Nav = ({
   const handleSearchForm: () => void = () => {}
 
   return (
-    <div className="NavBar row-span-1 col-span-8">
+    <div className="NavBar col-span-8 row-span-1">
       <NavBar
         DarkModeToggle={DarkModeToggle}
         DarkModeToggler={DarkModeToggler}

@@ -40,7 +40,7 @@ export const NavBar = ({
         />
       )}
 
-      <nav className="NavBar m-4 flex h-20 w-full items-center justify-between rounded-lg bg-slate-100 px-5 lg:w-7xl">
+      <nav className="NavBar lg:w-7xl m-4  flex h-20 w-full items-center justify-between rounded-lg bg-slate-100 px-5 lg:h-28">
         <SearchBar setSearchModalToggle={setSearchModalToggle} />
         {SearchModalToggle && (
           <SearchModal
