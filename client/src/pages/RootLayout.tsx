@@ -1,13 +1,9 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react'
 
 type RootLayoutProps = {
-    children: ReactNode
+  children: ReactNode
 }
 
-export const RootLayout = ({children}:RootLayoutProps) => {
-return (
- 
-<div className="lg:grid lg:grid-cols-12 lg:grid-rows-6 lg:mx-5 ">{children}</div>
- 
-);
+export const RootLayout = ({ children }: RootLayoutProps) => {
+  return <div className="xl:mx-5 xl:grid xl:grid-cols-12 xl:grid-rows-6 ">{children}</div>
 }

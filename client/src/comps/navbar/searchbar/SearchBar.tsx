@@ -10,7 +10,7 @@ export const SearchBar = ({ setSearchModalToggle }: SearchBarProps) => {
     >
       <div
         className="search-input soutline h-9 w-40 cursor-pointer rounded-lg border-none bg-gray-200
-       outline-1 outline-slate-400 hover:bg-slate-400 focus:border-none focus:outline-none lg:w-96"
+       outline-1 outline-slate-400 hover:bg-slate-400 focus:border-none focus:outline-none lg:w-[30rem]"
       >
         <div className="flex h-full items-center gap-1 p-2">
           <img src="/search.svg" alt="" />
