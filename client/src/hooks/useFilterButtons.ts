@@ -4,7 +4,6 @@ import { getPeopleQuery } from '../queries/queries'
 //types
 import { fetchPeopleProps } from '../types/inputProps'
 
-
 export const useFilterButtons = () => {
   const [variables, setVariables] = useState<{}>({
     filter: '',
@@ -23,11 +22,11 @@ export const useFilterButtons = () => {
     console.log('fetch people clicked!')
   }
 
-  const FTest = () => {
-    // setVariables({
-    //   filter: input?.filter || '',
-    //   argument: input?.argument || '',
-    // })
+  const FTest = ({ input }: fetchPeopleProps) => {
+    setVariables({
+      filter: input?.filter || '',
+      argument: input?.argument || '',
+    })
     console.log('fetch people clicked!')
   }
 

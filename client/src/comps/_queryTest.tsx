@@ -19,7 +19,7 @@ const _queryTest = ({ fetchPplResponse, FTest }: any) => {
             <hr />
             <li key={person._id}>{person.name}</li>
             <p>{person.gender}</p>
-            <img key={person._id} src={person.picture} alt="Person" />
+            <img key={person._id} src={person.pictures} alt="Person" />
           </div>
         ))}
     </ul>
