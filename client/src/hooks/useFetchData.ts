@@ -6,8 +6,8 @@ import { inputProps, fetchDataProps } from '../types/queryProps'
 
 export const useFetchData = () => {
   const [variables, setVariables] = useState<{ filter: string; argument: string }>({
-    filter: '',
-    argument: '',
+    filter: '_id',
+    argument: '648337b44c67e4442634e492',
   })
 
   const { loading, error, data }: fetchDataProps = useQuery(getPeopleQuery, {
@@ -16,11 +16,13 @@ export const useFetchData = () => {
 
   const fetchPeople = ({ input }: inputProps) => {
     setVariables({
-      filter: input?.filter || '',
-      argument: input?.argument || '',
+      filter: input?.filter || '_id',
+      argument: input?.argument || '648337b44c67e4442634e492',
     })
     console.log('fetch people clicked!')
   }
+
+  console.log(data)
 
   return {
     fetchDataResponse: { loading, error, data },

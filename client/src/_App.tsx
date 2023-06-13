@@ -8,6 +8,7 @@ import _queryTest from './comps/_queryTest'
 import _MainPage from './pages/mainpage/_MainPage'
 import _Nav from './comps/navbar/_Nav'
 import { _SideBar } from './comps/sidebar/_SideBar'
+import { _SingleModelPage } from './pages/single-modelpage/_SingleModelPage'
 import { BackGround } from './pages/BackGround'
 //hooks
 import { useGridListToggle } from './utils/useGridListToggle'
@@ -57,6 +58,7 @@ function App() {
               />
             }
           ></Route>
+          <Route path="/models/:id" element={<_SingleModelPage />}></Route>
         </Routes>
       </RootLayout>
       <BackGround />

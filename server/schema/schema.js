@@ -1,6 +1,7 @@
 const graphql = require('graphql')
 const _ = require('lodash')
 const Person = require('../models/person')
+const ObjectId = require('mongodb')
 
 const {
     GraphQLObjectType,
@@ -56,7 +57,10 @@ const RootQuery = new GraphQLObjectType({
                 argument: { type: GraphQLString },
             },
             resolve(parent, args) {
-                if (args.filter) {
+                if (args.filter === '_id') {
+                    const objectId = ObjectId(args.argument)
+                    return Person.findById(objectId)
+                } else if (args.filter) {
                     return Person.find({ [args.filter]: args.argument })
                 } else {
                     return Person.find({})
