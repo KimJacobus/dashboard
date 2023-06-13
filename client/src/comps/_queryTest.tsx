@@ -2,7 +2,7 @@ import { useQuery } from '@apollo/client'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getPeopleQuery } from '../queries/queries'
-import { useFilterButtons } from '../hooks/useFilterButtons'
+import { useFetchData } from '../hooks/useFetchData'
 
 const _queryTest = ({ fetchPplResponse, FTest }: any) => {
   const { loading, error, data } = fetchPplResponse

@@ -1,19 +1,29 @@
 // comps
 import { GridSingleItem } from './GridSingleItem'
-//data
-import { FakeJsonProps } from '../../../../types/FakeJsonProps'
+
+//types
+import { fetchDataProps } from '../../../../types/queryProps'
+import { Person } from '../../../../types/queryProps'
 
 type GridProps = {
-  posts: FakeJsonProps[]
+  fetchDataResponse: fetchDataProps
+  SelectionSelector: (id: string) => void
 }
 
-export const Grid = ({ posts }: GridProps) => {
+export const Grid = ({ fetchDataResponse }: GridProps) => {
+  const { data } = fetchDataResponse
   return (
     <div className="grid-wrapper h-[33rem] overflow-auto lg:h-[35rem]">
       <div className="grid grid-cols-2 gap-3 p-1 lg:grid-cols-4">
-        {posts &&
-          posts.map((post, index: number) => (
-            <GridSingleItem id={post.id} key={index} comment={post.comments} image={post.image} />
+        {data &&
+          data.people.map((person: Person, index: number) => (
+            <GridSingleItem
+              key={index}
+              id={person._id}
+              firstname={person.firstname}
+              lastname={person.lastname}
+              pictures={person.pictures}
+            />
           ))}
       </div>
     </div>

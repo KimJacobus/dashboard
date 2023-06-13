@@ -1,7 +1,7 @@
 //comps
 import { NavBar } from './NavBar'
 //types
-import { fetchPeopleProps } from '../../types/inputProps'
+import { inputProps } from '../../types/queryProps'
 
 type _NavProps = {
   SearchModalToggle: boolean
@@ -10,8 +10,7 @@ type _NavProps = {
   setSearchModalToggle: React.Dispatch<React.SetStateAction<boolean>>
   setAccountSideBarToggle: React.Dispatch<React.SetStateAction<boolean>>
   DarkModeToggler: () => void
-  fetchPeople: ({ input }: fetchPeopleProps) => void
-  setVariables: React.Dispatch<React.SetStateAction<{}>>
+  fetchPeople: ({ input }: inputProps) => void
 }
 
 const _Nav = ({
@@ -22,10 +21,7 @@ const _Nav = ({
   setSearchModalToggle,
   DarkModeToggler,
   fetchPeople,
-  setVariables,
 }: _NavProps) => {
-  const handleSearchForm: () => void = () => {}
-
   return (
     <div className="NavBar col-span-8 row-span-1">
       <NavBar
@@ -35,9 +31,7 @@ const _Nav = ({
         AccountSideBarToggle={AccountSideBarToggle}
         setAccountSideBarToggle={setAccountSideBarToggle}
         setSearchModalToggle={setSearchModalToggle}
-        handleSearchForm={handleSearchForm}
         fetchPeople={fetchPeople}
-        setVariables={setVariables}
       />
     </div>
   )

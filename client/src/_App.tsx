@@ -1,5 +1,5 @@
 //react
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 //styles
 import './App.css'
@@ -14,7 +14,7 @@ import { useGridListToggle } from './utils/useGridListToggle'
 import { useListSelectionButton } from './utils/useListSelectionButton'
 import { useDarkModeToggle } from './utils/useDarkModeToggle'
 import { useSelection } from './utils/useSelection'
-import { useFilterButtons } from './hooks/useFilterButtons'
+import { useFetchData } from './hooks/useFetchData'
 import { RootLayout } from './pages/RootLayout'
 
 function App() {
@@ -24,8 +24,7 @@ function App() {
   const { ButtonStates, handleSelectionButton } = useListSelectionButton()
   const { SelectionSelector, selection } = useSelection()
   //hooks
-  const { fetchPplResponse, fetchPeople, setVariables, FTest } = useFilterButtons()
-
+  const { fetchDataResponse, fetchPeople } = useFetchData()
   //states
   const [SearchModalToggle, setSearchModalToggle] = useState<boolean>(false)
   const [AccountSideBarToggle, setAccountSideBarToggle] = useState<boolean>(false)
@@ -42,7 +41,6 @@ function App() {
           AccountSideBarToggle={AccountSideBarToggle}
           setAccountSideBarToggle={setAccountSideBarToggle}
           fetchPeople={fetchPeople}
-          setVariables={setVariables}
         />
         <Routes>
           <Route
@@ -55,12 +53,9 @@ function App() {
                 selection={selection}
                 handleSelectionButton={handleSelectionButton}
                 SelectionSelector={SelectionSelector}
+                fetchDataResponse={fetchDataResponse}
               />
             }
-          ></Route>
-          <Route
-            path="/test"
-            element={<_queryTest fetchPplResponse={fetchPplResponse} FTest={FTest} />}
           ></Route>
         </Routes>
       </RootLayout>

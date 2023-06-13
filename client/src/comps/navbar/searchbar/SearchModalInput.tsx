@@ -1,19 +1,12 @@
 import { FilterButtons } from '../filter/FilterButtons'
-import { fetchPeopleProps } from '../../../types/inputProps'
+import { inputProps } from '../../../types/queryProps'
 
 type SearchModalInputProps = {
-  SearchModalToggle: boolean
   setSearchModalToggle: React.Dispatch<React.SetStateAction<boolean>>
-  fetchPeople: ({ input }: fetchPeopleProps) => void
-  setVariables: React.Dispatch<React.SetStateAction<{}>>
+  fetchPeople: ({ input }: inputProps) => void
 }
 
-export const SearchModalInput = ({
-  SearchModalToggle,
-  setSearchModalToggle,
-  fetchPeople,
-  setVariables,
-}: SearchModalInputProps) => {
+export const SearchModalInput = ({ setSearchModalToggle, fetchPeople }: SearchModalInputProps) => {
   return (
     <form className="ModalCard absolute left-12 top-10 z-10 h-2/4 w-3/4 rounded-lg bg-indigo-100 outline outline-2 outline-indigo-500">
       <div className="ModalInput mb-12 flex h-10 w-full items-center gap-4 rounded-t-lg bg-indigo-400 p-2 ps-4 ">
@@ -33,7 +26,7 @@ export const SearchModalInput = ({
           alt=""
         />
       </div>
-      <FilterButtons fetchPeople={fetchPeople} setVariables={setVariables} />
+      <FilterButtons fetchPeople={fetchPeople} />
     </form>
   )
 }

@@ -8,8 +8,8 @@ export const _SideBar = () => {
         <h2 className="h-28 ps-4 pt-7 text-6xl">Dash</h2>
         <hr className="my-2 w-full"></hr>
         <div className="buttons-wrapper flex flex-col gap-14 ps-5 pt-9">
-          {SideBarButtonsInput.map((button) => (
-            <SideBarButtons buttonText={button.text} buttonIcon={button.icon} />
+          {SideBarButtonsInput.map((button, index) => (
+            <SideBarButtons key={index} buttonText={button.text} buttonIcon={button.icon} />
           ))}
         </div>
       </div>

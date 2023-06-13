@@ -16,6 +16,7 @@ const {
 const PersonType = new GraphQLObjectType({
     name: 'Person',
     fields: () => ({
+        _id: { type: GraphQLString },
         gender: { type: GraphQLString },
         picture: { type: GraphQLString },
         availability: { type: GraphQLBoolean },
@@ -71,6 +72,7 @@ const Mutation = new GraphQLObjectType({
         addPerson: {
             type: PersonType,
             args: {
+                _id: { type: GraphQLString },
                 gender: { type: GraphQLString },
                 picture: { type: GraphQLString },
                 availability: { type: GraphQLBoolean },
@@ -93,6 +95,7 @@ const Mutation = new GraphQLObjectType({
             },
             resolve(parent, args) {
                 let person = new Person({
+                    _id: args._id,
                     gender: args.gender,
                     picture: args.picture,
                     availability: args.availability,

@@ -1,10 +1,10 @@
-import { fetchPeopleProps } from '../../../types/inputProps'
+import { inputProps } from '../../../types/queryProps'
 
 type SingleFilterButtonProps = {
   buttonText: string
   filter: string
   argument: string
-  fetchPeople: ({ input }: fetchPeopleProps) => void
+  fetchPeople: ({ input }: inputProps) => void
 }
 
 export const SingleFilterButton = ({

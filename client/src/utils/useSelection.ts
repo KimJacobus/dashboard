@@ -1,9 +1,10 @@
 import { useState } from 'react'
 
 export const useSelection = () => {
-  const [selection, setSelection] = useState<number[]>([])
+  const [selection, setSelection] = useState<string[]>([])
 
-  const SelectionSelector = (id: number) => {
+  const SelectionSelector = (id: string) => {
+    // console.log(selection);
     setSelection((prevStates) => {
       // Check if the ID already exists in the selection array
       const isSelected = prevStates.includes(id)

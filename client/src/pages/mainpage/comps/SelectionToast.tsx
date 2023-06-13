@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from 'react'
 import { gsap, Circ } from 'gsap'
 
 type SelectionToast = {
-  selection: number[]
+  selection: string[]
 }
 
 export const SelectionToast = ({ selection }: SelectionToast) => {

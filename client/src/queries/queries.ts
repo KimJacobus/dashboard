@@ -3,6 +3,7 @@ import { gql } from '@apollo/client'
 export const getPeopleQuery = gql`
   query GetPeople($filter: String, $argument: String) {
     people(filter: $filter, argument: $argument) {
+      _id
       gender
       picture
       availability
