@@ -15,6 +15,16 @@ export type fetchDataProps = {
   }
 }
 
+export type singleDataProps = {
+  loading: boolean
+  error?: ApolloError
+  data: {
+    people: []
+  }
+}
+
+
+
 export type Person = {
   _id: string
   firstname: string

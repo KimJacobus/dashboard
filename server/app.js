@@ -1,8 +1,8 @@
 const express = require('express')
 const graphqlHTTP = require('express-graphql')
 const schema = require('./schema/schema')
-const mongoose = require('mongoose')
 const addMultiplePeople = require('./addPeople/addPeople')
+const mongoose = require('mongoose')
 
 const app = express()
 

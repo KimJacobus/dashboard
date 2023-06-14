@@ -6,7 +6,8 @@ import { SelectionToast } from './comps/SelectionToast'
 //data
 import { MainPageHeader } from './comps/mainpage-header/MainPageHeader'
 //types
-import { fetchDataProps } from '../../types/queryProps'
+import { fetchDataProps, inputProps } from '../../types/queryProps'
+import { useEffect } from 'react'
 
 type _MainPageProps = {
   GridListToggle: boolean
@@ -16,6 +17,7 @@ type _MainPageProps = {
   handleSelectionButton: (index: number) => void
   SelectionSelector: (id: string) => void
   fetchDataResponse: fetchDataProps
+  fetchPeople: ({ input }: inputProps) => void
 }
 
 const _MainPage = ({
@@ -26,7 +28,12 @@ const _MainPage = ({
   handleSelectionButton,
   SelectionSelector,
   fetchDataResponse,
+  fetchPeople,
 }: _MainPageProps) => {
+  useEffect(() => {
+    fetchPeople({ input: { filter: '', argument: '' } })
+  }, [])
+
   return (
     <div className="mainpage-wrapper col-span-8 row-span-5 flex justify-center">
       <div className="main-page mx-4 w-full rounded-lg bg-slate-50 p-1">
