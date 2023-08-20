@@ -25,7 +25,7 @@ function App() {
   const { ButtonStates, handleSelectionButton } = useListSelectionButton()
   const { SelectionSelector, selection } = useSelection()
   //hooks
-  const { fetchDataResponse, fetchPeople } = useFetchData()
+  const { fetchDataResponse, fetchPeople,fakeDataQuery } = useFetchData()
   //states
   const [SearchModalToggle, setSearchModalToggle] = useState<boolean>(false)
   const [AccountSideBarToggle, setAccountSideBarToggle] = useState<boolean>(false)
@@ -56,6 +56,7 @@ function App() {
                 SelectionSelector={SelectionSelector}
                 fetchDataResponse={fetchDataResponse}
                 fetchPeople={fetchPeople}
+                fakeDataQuery={fakeDataQuery}
               />
             }
           ></Route>

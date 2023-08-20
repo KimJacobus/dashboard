@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 //comps
 import { Grid } from './comps/grid/Grid'
 import { List } from './comps/list/List'
@@ -8,6 +10,7 @@ import { MainPageHeader } from './comps/mainpage-header/MainPageHeader'
 import { peopleData } from '../../data/fakePeopleData'
 //types
 import { fetchDataProps, inputProps } from '../../types/queryProps'
+import { Person } from '../../types/queryProps'
 import { useEffect } from 'react'
 
 type _MainPageProps = {
@@ -19,6 +22,7 @@ type _MainPageProps = {
   SelectionSelector: (id: string) => void
   fetchDataResponse: fetchDataProps
   fetchPeople: ({ input }: inputProps) => void
+  fakeDataQuery: ({ input }: { input: { filter: string; argument: string } }) => Person[] | undefined
 }
 
 const _MainPage = ({
@@ -30,13 +34,16 @@ const _MainPage = ({
   SelectionSelector,
   fetchDataResponse,
   fetchPeople,
+  fakeDataQuery,
 }: _MainPageProps) => {
-
+  const [fakeData, setFakeData] = useState<Person[] | undefined>([])
   useEffect(() => {
-    fetchPeople({ input: { filter: '', argument: '' } })
-    
-
+    // fetchPeople({ input: { filter: '', argument: '' } })
+    const x = fakeDataQuery({ input: { filter: '', argument: '' } })
+    setFakeData(x)
   }, [])
+
+  console.log(fakeData)
 
   return (
     <div className="mainpage-wrapper col-span-8 row-span-5 flex justify-center">
