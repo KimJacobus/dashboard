@@ -8,7 +8,7 @@ export type inputProps = {
 }
 
 export type fetchDataProps = {
-  loading: boolean
+  loading?: boolean
   error?: ApolloError
   data?: {
     people: []
@@ -16,7 +16,7 @@ export type fetchDataProps = {
 }
 
 export type singleDataProps = {
-  loading: boolean
+  loading?: boolean
   error?: ApolloError
   data: {
     people: []
@@ -26,7 +26,7 @@ export type singleDataProps = {
 
 
 export type Person = {
-  _id: string
+  _id?: string
   firstname: string
   lastname: string
   gender: string

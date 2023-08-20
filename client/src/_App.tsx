@@ -30,11 +30,6 @@ function App() {
   const [SearchModalToggle, setSearchModalToggle] = useState<boolean>(false)
   const [AccountSideBarToggle, setAccountSideBarToggle] = useState<boolean>(false)
 
-
-
-
-
-
   return (
     <BrowserRouter>
       <RootLayout>
@@ -66,7 +61,8 @@ function App() {
           ></Route>
           <Route
             path="/models/:id"
-            element={<_SingleModelPage fetchPeople={fetchPeople} fetchDataResponse={fetchDataResponse} />}
+            // element={<_SingleModelPage fetchPeople={fetchPeople} fetchDataResponse={fetchDataResponse} />}
+            element={<_SingleModelPage />}
           ></Route>
         </Routes>
       </RootLayout>

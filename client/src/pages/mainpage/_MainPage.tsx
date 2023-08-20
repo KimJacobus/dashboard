@@ -5,6 +5,7 @@ import _Nav from '../../comps/navbar/_Nav'
 import { SelectionToast } from './comps/SelectionToast'
 //data
 import { MainPageHeader } from './comps/mainpage-header/MainPageHeader'
+import { peopleData } from '../../data/fakePeopleData'
 //types
 import { fetchDataProps, inputProps } from '../../types/queryProps'
 import { useEffect } from 'react'
@@ -30,8 +31,11 @@ const _MainPage = ({
   fetchDataResponse,
   fetchPeople,
 }: _MainPageProps) => {
+
   useEffect(() => {
     fetchPeople({ input: { filter: '', argument: '' } })
+    
+
   }, [])
 
   return (
