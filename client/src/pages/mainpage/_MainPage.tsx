@@ -39,6 +39,9 @@ const _MainPage = ({
 
 
 
+  useEffect(() => {
+    fetchPeople({ input: { filter: '', argument: '' } })
+  }, [])
 
   return (
     <div className="mainpage-wrapper col-span-8 row-span-5 flex justify-center">

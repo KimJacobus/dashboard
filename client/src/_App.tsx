@@ -31,14 +31,11 @@ function App() {
   const [SearchModalToggle, setSearchModalToggle] = useState<boolean>(false)
   const [AccountSideBarToggle, setAccountSideBarToggle] = useState<boolean>(false)
 
-  useEffect(() => {
-    fetchPeople({ input: { filter: '', argument: '' } })
-  }, [])
 
   return (
     <BrowserRouter>
       <RootLayout>
-        <_SideBar />
+        <_SideBar fetchPeople={fetchPeople} />
         <_Nav
           DarkModeToggle={DarkModeToggle}
           DarkModeToggler={DarkModeToggler}
