@@ -2,27 +2,29 @@ import { useParams } from 'react-router-dom'
 import { SingleModel } from './SingleModel'
 import { useEffect } from 'react'
 import { fetchDataProps, inputProps, singleDataProps } from '../../types/queryProps'
+//types
+import { Person } from '../../types/queryProps'
 //dev data
-import { peopleData } from '../../data/fakePeopleData'
+import { peopleData } from '../../../public/fakePeopleData'
 
 type SingleModelPageProps = {
   fetchPeople: ({ input }: inputProps) => void
-  fetchDataResponse: fetchDataProps
+  fakeData?: Person[]
 }
 
-export const _SingleModelPage = () => {
+export const _SingleModelPage = ({ fakeData, fetchPeople }: SingleModelPageProps) => {
   const { id } = useParams()
   const numberId = Number(id)
 
   const data = peopleData[numberId]
 
-  console.log(peopleData[0]);
-  
+  console.log(peopleData[0])
+
   // const { error, loading, data } = fetchDataResponse
 
-  // useEffect(() => {
-  //   fetchPeople({ input: { filter: '_id', argument: id } })
-  // }, [id])
+  useEffect(() => {
+    fetchPeople({ input: { filter: '_id', argument: id } })
+  }, [id])
 
   // if (loading) {
   //   ;<p>loading...</p>

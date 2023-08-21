@@ -1,3 +1,5 @@
+import search from '/search.svg'
+
 type SearchBarProps = {
   setSearchModalToggle: React.Dispatch<React.SetStateAction<boolean>>
 }
@@ -13,7 +15,7 @@ export const SearchBar = ({ setSearchModalToggle }: SearchBarProps) => {
        outline-1 outline-slate-400 hover:bg-slate-400 focus:border-none focus:outline-none lg:w-[30rem]"
       >
         <div className="flex h-full items-center gap-1 p-2">
-          <img src="/search.svg" alt="" />
+          <img src={search} alt="" />
           <div className="">Search...</div>
         </div>
       </div>

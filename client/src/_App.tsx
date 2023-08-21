@@ -25,11 +25,10 @@ function App() {
   const { ButtonStates, handleSelectionButton } = useListSelectionButton()
   const { SelectionSelector, selection } = useSelection()
   //hooks
-  const { fetchDataResponse, fetchPeople,fakeData } = useFetchData()
+  const { fetchDataResponse, fetchPeople, fakeData } = useFetchData()
   //states
   const [SearchModalToggle, setSearchModalToggle] = useState<boolean>(false)
   const [AccountSideBarToggle, setAccountSideBarToggle] = useState<boolean>(false)
-
 
   return (
     <BrowserRouter>
@@ -64,7 +63,7 @@ function App() {
           <Route
             path="/models/:id"
             // element={<_SingleModelPage fetchPeople={fetchPeople} fetchDataResponse={fetchDataResponse} />}
-            element={<_SingleModelPage />}
+            element={<_SingleModelPage fetchPeople={fetchPeople} fakeData={fakeData} />}
           ></Route>
         </Routes>
       </RootLayout>
