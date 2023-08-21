@@ -1,5 +1,5 @@
 //react
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 //styles
 import './App.css'
@@ -17,7 +17,8 @@ import { useDarkModeToggle } from './utils/useDarkModeToggle'
 import { useSelection } from './utils/useSelection'
 import { useFetchData } from './hooks/useFetchData'
 import { RootLayout } from './pages/RootLayout'
-
+//env
+import { routerBasePath } from './routerBasePath'
 function App() {
   //utils
   const { GridListToggle, GridListToggler } = useGridListToggle()
@@ -29,6 +30,10 @@ function App() {
   //states
   const [SearchModalToggle, setSearchModalToggle] = useState<boolean>(false)
   const [AccountSideBarToggle, setAccountSideBarToggle] = useState<boolean>(false)
+
+  useEffect(() => {
+    fetchPeople({ input: { filter: '', argument: '' } })
+  }, [])
 
   return (
     <BrowserRouter>
@@ -45,7 +50,7 @@ function App() {
         />
         <Routes>
           <Route
-            path="/"
+            path={routerBasePath}
             element={
               <_MainPage
                 GridListToggle={GridListToggle}
@@ -61,7 +66,7 @@ function App() {
             }
           ></Route>
           <Route
-            path="/models/:id"
+            path={routerBasePath + 'models/:id'}
             // element={<_SingleModelPage fetchPeople={fetchPeople} fetchDataResponse={fetchDataResponse} />}
             element={<_SingleModelPage fetchPeople={fetchPeople} fakeData={fakeData} />}
           ></Route>

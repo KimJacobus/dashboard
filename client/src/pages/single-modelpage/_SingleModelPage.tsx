@@ -5,7 +5,7 @@ import { fetchDataProps, inputProps, singleDataProps } from '../../types/queryPr
 //types
 import { Person } from '../../types/queryProps'
 //dev data
-import { peopleData } from '../../../public/fakePeopleData'
+import { peopleData } from '../../../../client/public/fakePeopleData'
 
 type SingleModelPageProps = {
   fetchPeople: ({ input }: inputProps) => void
@@ -20,19 +20,9 @@ export const _SingleModelPage = ({ fakeData, fetchPeople }: SingleModelPageProps
 
   console.log(peopleData[0])
 
-  // const { error, loading, data } = fetchDataResponse
-
-  useEffect(() => {
-    fetchPeople({ input: { filter: '_id', argument: id } })
-  }, [id])
-
-  // if (loading) {
-  //   ;<p>loading...</p>
-  // }
-
-  // if (error) {
-  //   ;<p>error</p>
-  // }
+  // useEffect(() => {
+  //   fetchPeople({ input: { filter: '_id', argument: id } })
+  // }, [id])
 
   return (
     <div className="model-page-wrapper col-span-8 row-span-5 flex justify-center rounded-lg">

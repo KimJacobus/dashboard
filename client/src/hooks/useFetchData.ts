@@ -5,7 +5,7 @@ import { getPeopleQuery } from '../queries/queries'
 import { inputProps, fetchDataProps } from '../types/queryProps'
 import { Person } from '../types/queryProps'
 //dev data
-import { peopleData } from '../../public/fakePeopleData'
+import { peopleData } from '../../../client/public/fakePeopleData'
 
 type variableTypes = {
   filter: string

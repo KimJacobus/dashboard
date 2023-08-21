@@ -37,9 +37,7 @@ const _MainPage = ({
   fakeData,
 }: _MainPageProps) => {
 
-  useEffect(() => {
-    fetchPeople({ input: { filter: '', argument: '' } })
-  }, [])
+
 
 
   return (
