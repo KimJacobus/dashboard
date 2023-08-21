@@ -6,7 +6,7 @@ import { SideBarButtonsInput } from './SideBarButtonsInput'
 //types
 import { inputProps } from '../../types/queryProps'
 //env
-import { routerBasePath } from '../../routerBasePath'
+import { routerBasePath } from '../../../../routerBasePath'
 
 export const _SideBar = ({ fetchPeople }: { fetchPeople: ({ input }: inputProps) => void }) => {
   const navigate = useNavigate()

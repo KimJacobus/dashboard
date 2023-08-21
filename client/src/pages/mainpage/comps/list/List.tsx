@@ -11,6 +11,7 @@ type ListProps = {
   handleSelectionButton: (index: number) => void
   fetchDataResponse: fetchDataProps
   SelectionSelector: (id: string) => void
+  fakeData?: Person[]
 }
 
 export const List = ({
@@ -18,9 +19,10 @@ export const List = ({
   handleSelectionButton,
   SelectionSelector,
   fetchDataResponse,
+  fakeData,
 }: ListProps) => {
   // const { data } = fetchDataResponse // data.people.map for mapping out actual data
-  const data = peopleData
+  const data = fakeData
 
   return (
     <div className="flex-wrapper flex h-[33rem] justify-center overflow-auto lg:h-[35rem]">

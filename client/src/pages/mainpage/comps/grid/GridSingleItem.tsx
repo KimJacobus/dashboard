@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { routerBasePath } from '../../../../routerBasePath'
+import { routerBasePath } from '../../../../../../routerBasePath'
 
 type GridSingleItemProps = {
   id: string

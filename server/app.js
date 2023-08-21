@@ -1,3 +1,5 @@
+const dotenv = require('dotenv')
+dotenv.config()
 const express = require('express')
 const graphqlHTTP = require('express-graphql')
 const schema = require('./schema/schema')
@@ -6,9 +8,9 @@ const mongoose = require('mongoose')
 
 const app = express()
 
-mongoose.connect(
-    'mongodb+srv://jacobuskim:JSLY6bccVaDUZjpj@dashboard.ujdqfva.mongodb.net/dashdb?retryWrites=true&w=majority'
-)
+const mongoConnectionString = process.env.MONGO_CONNECTION_STRING
+
+mongoose.connect(process.env.MONGO_CONNECTION_STRING)
 mongoose.connection.once('open', () => {
     console.log('Connected to the database')
 })
@@ -23,6 +25,8 @@ app.get('/add-people', async (req, res) => {
     }
 })
 
+
+
 app.use(
     '/graphql',
     graphqlHTTP({
@@ -34,4 +38,3 @@ app.use(
 app.listen(4000, () => {
     console.log('Now listening for requests on port 4000')
 })
- 

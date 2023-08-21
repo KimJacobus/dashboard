@@ -60,6 +60,7 @@ const _MainPage = ({
             handleSelectionButton={handleSelectionButton}
             SelectionSelector={SelectionSelector}
             fetchDataResponse={fetchDataResponse}
+            fakeData={fakeData}
           />
         )}
         {selection.length > 0 && <SelectionToast selection={selection} />}
