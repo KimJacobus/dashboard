@@ -22,7 +22,7 @@ type _MainPageProps = {
   SelectionSelector: (id: string) => void
   fetchDataResponse: fetchDataProps
   fetchPeople: ({ input }: inputProps) => void
-  fakeDataQuery: ({ input }: { input: { filter: string; argument: string } }) => Person[] | undefined
+  fakeData?: Person[]
 }
 
 const _MainPage = ({
@@ -34,16 +34,13 @@ const _MainPage = ({
   SelectionSelector,
   fetchDataResponse,
   fetchPeople,
-  fakeDataQuery,
+  fakeData,
 }: _MainPageProps) => {
-  const [fakeData, setFakeData] = useState<Person[] | undefined>([])
+
   useEffect(() => {
-    // fetchPeople({ input: { filter: '', argument: '' } })
-    const x = fakeDataQuery({ input: { filter: '', argument: '' } })
-    setFakeData(x)
+    fetchPeople({ input: { filter: '', argument: '' } })
   }, [])
 
-  console.log(fakeData)
 
   return (
     <div className="mainpage-wrapper col-span-8 row-span-5 flex justify-center">
@@ -55,7 +52,7 @@ const _MainPage = ({
         />
 
         {GridListToggle ? (
-          <Grid fetchDataResponse={fetchDataResponse} SelectionSelector={SelectionSelector} />
+          <Grid fetchDataResponse={fetchDataResponse} SelectionSelector={SelectionSelector} fakeData={fakeData}/>
         ) : (
           <List
             ButtonStates={ButtonStates}

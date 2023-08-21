@@ -1,32 +1,51 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useQuery } from '@apollo/client'
 import { getPeopleQuery } from '../queries/queries'
 //types
 import { inputProps, fetchDataProps } from '../types/queryProps'
+import { Person } from '../types/queryProps'
 //dev data
 import { peopleData } from '../data/fakePeopleData'
 
+type variableTypes = {
+  filter: string
+  argument: string
+}
+
 export const useFetchData = () => {
-  const [variables, setVariables] = useState<{ filter: string; argument: string }>({
+  const [variables, setVariables] = useState<variableTypes>({
     filter: '',
     argument: '',
   })
+  const [fakeData, setFakeData] = useState<Person[] | undefined>([])
 
-  const { loading, error, data }: fetchDataProps = useQuery(getPeopleQuery, {
-    variables,
-  })
+  console.log(variables)
 
-  const fakeDataQuery = ({ input }: { input: { filter: string; argument: string } }) => {
+  const fakeDataQuery = ({ variables }: { variables: variableTypes }): Person[] | undefined => {
     if (!peopleData) return
 
-    const fakePeopledata = peopleData.filter((d) => {
-      const keys = Object.keys(d)
+    const fakePeopledata = peopleData.filter((person) => {
+      if (variables.filter === '' && variables.argument === '') {
+        return peopleData
+      }
+      const keys = Object.keys(person)
       return keys.some((key) => {
-        return d[key as keyof typeof d] === input.filter || d[key as keyof typeof d] === input.argument
+        return (
+          person[key as keyof typeof person] === variables.filter ||
+          person[key as keyof typeof person] === variables.argument
+        )
       })
     })
     return fakePeopledata
   }
+
+  useEffect(() => {
+    setFakeData(fakeDataQuery({ variables }))
+  }, [variables])
+
+  const { loading, error, data }: fetchDataProps = useQuery(getPeopleQuery, {
+    variables,
+  })
 
   const fetchPeople = ({ input }: inputProps) => {
     setVariables({
@@ -36,10 +55,8 @@ export const useFetchData = () => {
     console.log('fetch people clicked!')
   }
 
-  console.log(data)
-
   return {
-    fakeDataQuery,
+    fakeData,
     fetchDataResponse: { loading, error, data },
     fetchPeople,
   }

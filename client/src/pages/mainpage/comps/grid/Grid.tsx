@@ -3,17 +3,17 @@ import { GridSingleItem } from './GridSingleItem'
 //types
 import { fetchDataProps } from '../../../../types/queryProps'
 import { Person } from '../../../../types/queryProps'
-//dev data 
-import { peopleData } from '../../../../data/fakePeopleData'
 
 type GridProps = {
   fetchDataResponse: fetchDataProps
   SelectionSelector: (id: string) => void
+  fakeData?: Person[]
 }
 
-export const Grid = ({ fetchDataResponse }: GridProps) => {
-  // const { data } = fetchDataResponse
-  const  data  = peopleData
+export const Grid = ({ fetchDataResponse, fakeData }: GridProps) => {
+  const data = fakeData
+  console.log(data);
+  
 
   return (
     <div className="grid-wrapper h-[33rem] overflow-auto lg:h-[35rem]">
