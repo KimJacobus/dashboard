@@ -1,6 +1,6 @@
 const graphql = require('graphql')
-const _ = require('lodash')
 const Person = require('../models/person')
+const { ObjectId } = require('mongodb')
 
 const {
     GraphQLObjectType,
@@ -56,7 +56,12 @@ const RootQuery = new GraphQLObjectType({
                 argument: { type: GraphQLString },
             },
             resolve(parent, args) {
-                if (args.filter) {
+                if (args.filter === '_id' && ObjectId.isValid(args.argument)) {
+                    // const objID = ObjectId(args.argument)
+                    return Person.find({
+                        [args.filter]: args.argument,
+                    })
+                } else if (args.filter) {
                     return Person.find({ [args.filter]: args.argument })
                 } else {
                     return Person.find({})
@@ -72,7 +77,6 @@ const Mutation = new GraphQLObjectType({
         addPerson: {
             type: PersonType,
             args: {
-                _id: { type: GraphQLString },
                 gender: { type: GraphQLString },
                 picture: { type: GraphQLString },
                 availability: { type: GraphQLBoolean },
@@ -95,7 +99,6 @@ const Mutation = new GraphQLObjectType({
             },
             resolve(parent, args) {
                 let person = new Person({
-                    _id: args._id,
                     gender: args.gender,
                     picture: args.picture,
                     availability: args.availability,

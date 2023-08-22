@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom'
+import { routerBasePath } from '../../../../../routerBasePath'
+
 type GridSingleItemProps = {
   id: string
   firstname: string
@@ -7,10 +10,12 @@ type GridSingleItemProps = {
 
 export const GridSingleItem = ({ id, firstname, lastname, pictures }: GridSingleItemProps) => {
   return (
-    <div className="single-item flex h-64 cursor-pointer items-center justify-center rounded-lg bg-slate-50 outline outline-1 outline-gray-400 hover:bg-gray-200 lg:h-96">
-      <p>{firstname}</p>
-      <p>{lastname}</p>
-      <img src={pictures}></img>
-    </div>
+    <Link to={routerBasePath + `models/${id}`}>
+      <div className="single-item flex h-64 cursor-pointer flex-col items-center justify-center gap-1 rounded-lg bg-slate-50 font-mono text-xl outline outline-1 outline-gray-400 hover:bg-gray-200 lg:h-96">
+        <img className="w-44 pb-2 grayscale " src={pictures}></img>
+        <p>{firstname}</p>
+        <p>{lastname}</p>
+      </div>
+    </Link>
   )
 }

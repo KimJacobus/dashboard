@@ -1,5 +1,5 @@
 //react
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 //styles
 import './App.css'
@@ -8,6 +8,7 @@ import _queryTest from './comps/_queryTest'
 import _MainPage from './pages/mainpage/_MainPage'
 import _Nav from './comps/navbar/_Nav'
 import { _SideBar } from './comps/sidebar/_SideBar'
+import { _SingleModelPage } from './pages/single-modelpage/_SingleModelPage'
 import { BackGround } from './pages/BackGround'
 //hooks
 import { useGridListToggle } from './utils/useGridListToggle'
@@ -16,7 +17,8 @@ import { useDarkModeToggle } from './utils/useDarkModeToggle'
 import { useSelection } from './utils/useSelection'
 import { useFetchData } from './hooks/useFetchData'
 import { RootLayout } from './pages/RootLayout'
-
+//env
+import { routerBasePath } from '../routerBasePath'
 function App() {
   //utils
   const { GridListToggle, GridListToggler } = useGridListToggle()
@@ -24,7 +26,7 @@ function App() {
   const { ButtonStates, handleSelectionButton } = useListSelectionButton()
   const { SelectionSelector, selection } = useSelection()
   //hooks
-  const { fetchDataResponse, fetchPeople } = useFetchData()
+  const { fetchDataResponse, fetchPeople, fakeData } = useFetchData()
   //states
   const [SearchModalToggle, setSearchModalToggle] = useState<boolean>(false)
   const [AccountSideBarToggle, setAccountSideBarToggle] = useState<boolean>(false)
@@ -32,7 +34,7 @@ function App() {
   return (
     <BrowserRouter>
       <RootLayout>
-        <_SideBar />
+        <_SideBar fetchPeople={fetchPeople} />
         <_Nav
           DarkModeToggle={DarkModeToggle}
           DarkModeToggler={DarkModeToggler}
@@ -44,7 +46,7 @@ function App() {
         />
         <Routes>
           <Route
-            path="/"
+            path={routerBasePath}
             element={
               <_MainPage
                 GridListToggle={GridListToggle}
@@ -54,8 +56,15 @@ function App() {
                 handleSelectionButton={handleSelectionButton}
                 SelectionSelector={SelectionSelector}
                 fetchDataResponse={fetchDataResponse}
+                fetchPeople={fetchPeople}
+                fakeData={fakeData}
               />
             }
+          ></Route>
+          <Route
+            path={routerBasePath + 'models/:id'}
+            // element={<_SingleModelPage fetchPeople={fetchPeople} fetchDataResponse={fetchDataResponse} />}
+            element={<_SingleModelPage fetchPeople={fetchPeople} fakeData={fakeData} />}
           ></Route>
         </Routes>
       </RootLayout>

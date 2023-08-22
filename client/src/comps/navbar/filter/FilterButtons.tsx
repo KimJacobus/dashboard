@@ -8,11 +8,6 @@ type FilterButtonsProps = {
 }
 
 export const FilterButtons = ({ fetchPeople }: FilterButtonsProps) => {
-  // const clickHandler = (e: React.MouseEvent<HTMLButtonElement>, filter: string, argument: string) => {
-  //   e.preventDefault()
-  //   fetchPeople({ input: { filter, argument } })
-  // }
-
   return (
     <div className="f-buttons-wrapper flex justify-center">
       <div className="filter-buttons grid grid-cols-3 gap-2">

@@ -1,3 +1,6 @@
+import xSquare from '/x-square.svg'
+import search from '/search.svg'
+
 import { FilterButtons } from '../filter/FilterButtons'
 import { inputProps } from '../../../types/queryProps'
 
@@ -10,7 +13,7 @@ export const SearchModalInput = ({ setSearchModalToggle, fetchPeople }: SearchMo
   return (
     <form className="ModalCard absolute left-12 top-10 z-10 h-2/4 w-3/4 rounded-lg bg-indigo-100 outline outline-2 outline-indigo-500">
       <div className="ModalInput mb-12 flex h-10 w-full items-center gap-4 rounded-t-lg bg-indigo-400 p-2 ps-4 ">
-        <img src="/search.svg"></img>
+        <img src={search}></img>
 
         <input
           id="search"
@@ -22,7 +25,7 @@ export const SearchModalInput = ({ setSearchModalToggle, fetchPeople }: SearchMo
         <img
           className="cursor-pointer"
           onClick={() => setSearchModalToggle((prevState) => !prevState)}
-          src="/x-square.svg"
+          src={xSquare}
           alt=""
         />
       </div>
