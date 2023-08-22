@@ -4,7 +4,7 @@
 <h3 align="center">Model Dashboard</h3>
 
   <p align="center">
-  A dashboard for searching and assigning jobs to models
+  A dashboard for searching for and assigning jobs to models
   </p>
 
 <a style="font-size: 18px;" href="https://kimjacobus.github.io/dashboard/">See the app live</a> 🚀

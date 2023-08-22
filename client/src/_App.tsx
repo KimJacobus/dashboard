@@ -18,7 +18,7 @@ import { useSelection } from './utils/useSelection'
 import { useFetchData } from './hooks/useFetchData'
 import { RootLayout } from './pages/RootLayout'
 //env
-import { routerBasePath } from '../../routerBasePath'
+import { routerBasePath } from '../routerBasePath'
 function App() {
   //utils
   const { GridListToggle, GridListToggler } = useGridListToggle()
