@@ -4,26 +4,26 @@
 <h3 align="center">Model Dashboard</h3>
 
   <p align="center">
-  A dashboard for searching for and assigning jobs to models
+  A dashboard for searching and assigning jobs to people.
   </p>
 
 <a style="font-size: 18px;" href="https://kimjacobus.github.io/dashboard/">See the app live</a> 🚀
 <br/>
 <br/>
-<img src="example.png" alt="Example Image" width="600"/>
+<img src="example-dashboard.png" alt="Example Image" width="600"/>
 
 </div>
 
 ## About The Project
 
-**A banner-generator application designed to effortlessly craft banners in various formats**,
-made with a plethora of customization features and the possibility to either download them in zip folder or a single PNG file.
+**A dashboard designed to seamlessly manage project allocation among diverse models**
+made with a functional and clean looking UI, enhanced with animation to elevate the experience.
 
-The **image component** has three layers made with a composition of mask, front and background layer in mind.
+There are two viewing modes: the grid view for precise individual selections, and the list view for efficient bulk selections.
+Searching for specific people is done by using the search modal which functions via preset filters or the search input.
 
-The **json functionality** allows you to add data directly into the text inputs. By entering the endpoint url into the JSON input, and wrapping your object key within the `{%objectKey%}` symbols, the same works for using the custom country input, add the `<country>` tag to choose where it should be placed and change the country name to your liking.
-
-To illustrate the potential of this application, I've utilized the iconic Brussels Airport as a tangible and realistic example.
+The projects tab enables users to generate new projects, access existing ones, and see who's assigned.
+While the project remains a work in progress, the foundational components are firmly in place. I've also plugged in some fake data and a local filter function to mirror the database data and the graphQL functions for the time being.
 
 ### Built With
 
@@ -53,21 +53,20 @@ Instructions for running the project locally.
 
 1. Clone the repo
     ```sh
-    git clone https://github.com/KimJacobus/banner-generator.git
+    git clone https://github.com/KimJacobus/dashboard.git
     ```
 2. Cd into the folder that has the package.json file then install the NPM packages
     ```sh
     npm install
     ```
-3. Run the local server
+3. Run the local client
     ```sh
     npm run dev
     ```
 
 ## Dependencies used
 
--   [jszip](https://stuk.github.io/jszip/)
--   [html-to-image](https://github.com/bubkoo/html-to-image#readme)
+-   [gsap](https://greensock.com/gsap/)
 -   [gh-pages](https://github.com/tschaub/gh-pages)
 
 ## Contact
