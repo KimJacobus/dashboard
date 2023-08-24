@@ -1,10 +1,9 @@
-import { fetchDataProps, Person } from '../../../../types/queryProps'
-
+import { fetchDataProps, Person } from '@type/queryProps'
 //comps
 import { ListSingleItem } from './ListSingleItem'
 import { ListSelectionButton } from './ListSelectionButton'
 //dev data
-import { peopleData } from '../../../../data/fakePeopleData'
+import { peopleData } from '@data/fakePeopleData'
 
 type ListProps = {
   ButtonStates: boolean[]

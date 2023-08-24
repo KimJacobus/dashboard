@@ -1,17 +1,14 @@
+//hooks
 import { useState } from 'react'
-
-//comps
-import { Grid } from './comps/grid/Grid'
-import { List } from './comps/list/List'
-import _Nav from '../../comps/navbar/_Nav'
-import { SelectionToast } from './comps/SelectionToast'
-//data
-import { MainPageHeader } from './comps/mainpage-header/MainPageHeader'
-import { peopleData } from '../../data/fakePeopleData'
-//types
-import { fetchDataProps, inputProps } from '../../types/queryProps'
-import { Person } from '../../types/queryProps'
 import { useEffect } from 'react'
+//comps
+import { Grid } from './mainpage-comps/grid/Grid'
+import { List } from './mainpage-comps/list/List'
+import _Nav from '@comps/navbar/_Nav'
+import { SelectionToast } from './mainpage-comps/SelectionToast'
+import { MainPageHeader } from './mainpage-comps/mainpage-header/MainPageHeader'
+//types
+import { fetchDataProps, inputProps, Person } from '@type/queryProps'
 
 type _MainPageProps = {
   GridListToggle: boolean
@@ -36,9 +33,6 @@ const _MainPage = ({
   fetchPeople,
   fakeData,
 }: _MainPageProps) => {
-
-
-
   useEffect(() => {
     fetchPeople({ input: { filter: '', argument: '' } })
   }, [])
@@ -53,7 +47,11 @@ const _MainPage = ({
         />
 
         {GridListToggle ? (
-          <Grid fetchDataResponse={fetchDataResponse} SelectionSelector={SelectionSelector} fakeData={fakeData}/>
+          <Grid
+            fetchDataResponse={fetchDataResponse}
+            SelectionSelector={SelectionSelector}
+            fakeData={fakeData}
+          />
         ) : (
           <List
             ButtonStates={ButtonStates}

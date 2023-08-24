@@ -1,8 +1,8 @@
 // comps
 import { GridSingleItem } from './GridSingleItem'
 //types
-import { fetchDataProps } from '../../../../types/queryProps'
-import { Person } from '../../../../types/queryProps'
+import { fetchDataProps } from '@type/queryProps'
+import { Person } from '@type/queryProps'
 
 type GridProps = {
   fetchDataResponse: fetchDataProps
@@ -12,8 +12,7 @@ type GridProps = {
 
 export const Grid = ({ fetchDataResponse, fakeData }: GridProps) => {
   const data = fakeData
-  console.log(data);
-  
+  console.log(data)
 
   return (
     <div className="grid-wrapper h-[33rem] overflow-auto lg:h-[35rem]">

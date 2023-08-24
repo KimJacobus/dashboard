@@ -1,9 +1,9 @@
 //comps
-import { GridListButton } from '../../../../comps/navbar/gridlist-toggle/GridListButton'
+import { GridListButton } from '@comps/navbar/gridlist-toggle/GridListButton'
 //types
-import { fetchDataProps } from '../../../../types/queryProps'
-//dev data 
-import { peopleData } from '../../../../data/fakePeopleData'
+import { fetchDataProps } from '@type/queryProps'
+//dev data
+import { peopleData } from '@data/fakePeopleData.ts'
 
 type MainPageHeader = {
   GridListToggle: boolean
@@ -13,7 +13,7 @@ type MainPageHeader = {
 
 export const MainPageHeader = ({ fetchDataResponse, GridListToggle, GridListToggler }: MainPageHeader) => {
   // const { data } = fetchDataResponse
-  const  data  = peopleData
+  const data = peopleData
 
   return (
     <>

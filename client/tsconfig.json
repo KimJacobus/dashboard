@@ -17,8 +17,16 @@
     "strict": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "paths": {
+      "@": ["./src"],
+      "@data/*": ["./src/data/*"],
+      "@type/*": ["./src/types/*"],
+      "@comps/*": ["./src/comps/*"]
+    }
   },
+
   "include": ["src", "routerBasePath.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,4 +1,4 @@
 //dev env
-// export const routerBasePath = '/'
+export const routerBasePath = '/'
 //gh build env
-export const routerBasePath = '/dashboard/'
+// export const routerBasePath = '/dashboard/'
