@@ -10,6 +10,7 @@ import { routerBasePath } from '../../../routerBasePath'
 
 export const _SideBar = ({ fetchPeople }: { fetchPeople: ({ input }: inputProps) => void }) => {
   const navigate = useNavigate()
+  
   const clickHandler = () => {
     navigate(routerBasePath)
     fetchPeople({ input: { filter: '', argument: '' } })
@@ -24,7 +25,7 @@ export const _SideBar = ({ fetchPeople }: { fetchPeople: ({ input }: inputProps)
         <hr className="my-2 w-full"></hr>
         <div className="buttons-wrapper flex flex-col gap-14 ps-5 pt-9">
           {SideBarButtonsInput.map((button, index) => (
-            <SideBarButtons key={index} buttonText={button.text} buttonIcon={button.icon} />
+            <SideBarButtons key={index} buttonText={button.text} buttonIcon={button.icon} clickHandler={clickHandler} />
           ))}
         </div>
       </div>

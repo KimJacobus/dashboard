@@ -8,7 +8,8 @@ const mongoose = require('mongoose')
 
 const app = express()
 
-const mongoConnectionString = process.env.MONGO_CONNECTION_STRING
+// const mongoConnectionString = process.env.MONGO_CONNECTION_STRING
+// can't pass the env to a const ?
 
 mongoose.connect(process.env.MONGO_CONNECTION_STRING)
 mongoose.connection.once('open', () => {
@@ -24,8 +25,6 @@ app.get('/add-people', async (req, res) => {
         res.status(500).send('Error adding people')
     }
 })
-
-
 
 app.use(
     '/graphql',
