@@ -1,12 +1,8 @@
-import { fetchDataProps, singleDataProps } from '../../types/queryProps'
-
-type SingleModelProps = {
-  data: any
-}
+import { fetchDataProps, singleDataProps, Person } from '@type/queryProps'
 
 // typecast single object?
 
-export const SingleModel = ({ data }: SingleModelProps) => {
+export const SingleModel = ({ data }: { data: Person }) => {
   if (data) {
     // console.log(data.people[0]._id)
   }
