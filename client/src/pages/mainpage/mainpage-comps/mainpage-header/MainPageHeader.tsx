@@ -24,7 +24,7 @@ export const MainPageHeader = ({ fetchDataResponse, GridListToggle, GridListTogg
         </div>
         <GridListButton GridListToggle={GridListToggle} GridListToggler={GridListToggler} />
       </div>
-      <hr className="my-2 w-full"></hr>
+      <hr className="my-2 w-full">aa</hr>
     </>
   )
 }
