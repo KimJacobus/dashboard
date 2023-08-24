@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom'
 import { SingleModel } from './SingleModel'
 import { useEffect } from 'react'
-import { fetchDataProps, inputProps, singleDataProps } from '../../types/queryProps'
+import { fetchDataProps, inputProps, singleDataProps } from '@type/queryProps'
 //types
-import { Person } from '../../types/queryProps'
+import { Person } from '@type/queryProps'
 //dev data
 import { peopleData } from '../../../../client/public/fakePeopleData'
 
@@ -15,10 +15,7 @@ type SingleModelPageProps = {
 export const _SingleModelPage = ({ fakeData, fetchPeople }: SingleModelPageProps) => {
   const { id } = useParams()
   const numberId = Number(id)
-
   const data = peopleData[numberId]
-
-  console.log(peopleData[0])
 
   // useEffect(() => {
   //   fetchPeople({ input: { filter: '_id', argument: id } })

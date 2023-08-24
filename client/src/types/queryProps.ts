@@ -19,7 +19,7 @@ export type singleDataProps = {
   loading?: boolean
   error?: ApolloError
   data: {
-    people: []
+    people: Person[]
   }
 }
 
