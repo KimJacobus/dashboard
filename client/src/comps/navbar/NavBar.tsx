@@ -4,48 +4,37 @@ import { SearchModal } from './searchbar/SearchModal'
 import { AccountSideBar } from './dashboard/AccountSideBar'
 //types
 import { AccountIcon } from './dashboard/AccountIcon'
-import { inputProps } from '../../types/queryProps'
+import { inputProps } from '@type/queryProps'
 
 type NavBarProps = {
+  AccountSideBarToggle: boolean
   DarkModeToggle: boolean
   DarkModeToggler: () => void
+  fetchPeople: ({ input }: inputProps) => void
   SearchModalToggle: boolean
-  AccountSideBarToggle: boolean
   setSearchModalToggle: React.Dispatch<React.SetStateAction<boolean>>
   setAccountSideBarToggle: React.Dispatch<React.SetStateAction<boolean>>
-  fetchPeople: ({ input }: inputProps) => void
 }
 
 export const NavBar = ({
-  SearchModalToggle,
-  AccountSideBarToggle,
-  DarkModeToggle,
-  setSearchModalToggle,
-  setAccountSideBarToggle,
-  DarkModeToggler,
-  fetchPeople,
+...props
 }: NavBarProps) => {
   return (
     <div className="navbar-wrapper flex justify-center">
-      {AccountSideBarToggle && (
+      {props.AccountSideBarToggle && (
         <AccountSideBar
-          DarkModeToggle={DarkModeToggle}
-          DarkModeToggler={DarkModeToggler}
-          AccountSideBarToggle={AccountSideBarToggle}
-          setAccountSideBarToggle={setAccountSideBarToggle}
+        {...props}
         />
       )}
 
       <nav className="NavBar lg:w-7xl m-4  flex h-20 w-full items-center justify-between rounded-lg bg-slate-100 px-5 lg:h-28">
-        <SearchBar setSearchModalToggle={setSearchModalToggle} />
-        {SearchModalToggle && (
+        <SearchBar setSearchModalToggle={props.setSearchModalToggle} />
+        {props.SearchModalToggle && (
           <SearchModal
-            SearchModalToggle={SearchModalToggle}
-            setSearchModalToggle={setSearchModalToggle}
-            fetchPeople={fetchPeople}
+          {...props}
           />
         )}
-        <AccountIcon setAccountSideBarToggle={setAccountSideBarToggle} />
+        <AccountIcon setAccountSideBarToggle={props.setAccountSideBarToggle} />
       </nav>
     </div>
   )

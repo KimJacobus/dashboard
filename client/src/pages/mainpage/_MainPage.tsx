@@ -23,45 +23,18 @@ type _MainPageProps = {
 }
 
 const _MainPage = ({
-  GridListToggle,
-  GridListToggler,
-  selection,
-  ButtonStates,
-  handleSelectionButton,
-  SelectionSelector,
-  fetchDataResponse,
-  fetchPeople,
-  fakeData,
+...props
 }: _MainPageProps) => {
   useEffect(() => {
-    fetchPeople({ input: { filter: '', argument: '' } })
+    props.fetchPeople({ input: { filter: '', argument: '' } })
   }, [])
 
   return (
     <div className="mainpage-wrapper col-span-8 row-span-5 flex justify-center">
       <div className="main-page mx-4 w-full rounded-lg bg-slate-50 p-1">
-        <MainPageHeader
-          fetchDataResponse={fetchDataResponse}
-          GridListToggle={GridListToggle}
-          GridListToggler={GridListToggler}
-        />
-
-        {GridListToggle ? (
-          <Grid
-            fetchDataResponse={fetchDataResponse}
-            SelectionSelector={SelectionSelector}
-            fakeData={fakeData}
-          />
-        ) : (
-          <List
-            ButtonStates={ButtonStates}
-            handleSelectionButton={handleSelectionButton}
-            SelectionSelector={SelectionSelector}
-            fetchDataResponse={fetchDataResponse}
-            fakeData={fakeData}
-          />
-        )}
-        {selection.length > 0 && <SelectionToast selection={selection} />}
+        <MainPageHeader {...props} />
+        {props.GridListToggle ? <Grid {...props} /> : <List {...props} /> }
+        {props.selection.length > 0 && <SelectionToast selection={props.selection} />}
       </div>
     </div>
   )

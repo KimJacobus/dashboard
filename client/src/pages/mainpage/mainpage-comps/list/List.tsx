@@ -14,14 +14,10 @@ type ListProps = {
 }
 
 export const List = ({
-  ButtonStates,
-  handleSelectionButton,
-  SelectionSelector,
-  fetchDataResponse,
-  fakeData,
+ ...props
 }: ListProps) => {
   // const { data } = fetchDataResponse // data.people.map for mapping out actual data
-  const data = fakeData
+  const data = props.fakeData
 
   return (
     <div className="flex-wrapper flex h-[33rem] justify-center overflow-auto lg:h-[35rem]">
@@ -30,12 +26,10 @@ export const List = ({
           data.map((person: Person, index: number) => (
             <div key={index} className="flex items-center gap-2 py-2">
               <ListSelectionButton
-                ButtonStates={ButtonStates}
+                {...props}
                 index={index}
                 key={person.firstname}
                 id={person._id as string}
-                handleSelectionButton={handleSelectionButton}
-                SelectionSelector={SelectionSelector}
               />
 
               <ListSingleItem
