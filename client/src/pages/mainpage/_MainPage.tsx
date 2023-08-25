@@ -22,9 +22,7 @@ type _MainPageProps = {
   fakeData?: Person[]
 }
 
-const _MainPage = ({
-...props
-}: _MainPageProps) => {
+const _MainPage = ({ ...props }: _MainPageProps) => {
   useEffect(() => {
     props.fetchPeople({ input: { filter: '', argument: '' } })
   }, [])
@@ -33,7 +31,7 @@ const _MainPage = ({
     <div className="mainpage-wrapper col-span-8 row-span-5 flex justify-center">
       <div className="main-page mx-4 w-full rounded-lg bg-slate-50 p-1">
         <MainPageHeader {...props} />
-        {props.GridListToggle ? <Grid {...props} /> : <List {...props} /> }
+        {props.GridListToggle ? <Grid {...props} /> : <List {...props} />}
         {props.selection.length > 0 && <SelectionToast selection={props.selection} />}
       </div>
     </div>
