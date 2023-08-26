@@ -1,4 +1,4 @@
-import { fetchDataProps, Person } from '@type/queryProps'
+import { fetchDataProps, Person, singleDataProps } from '@type/queryProps'
 //comps
 import { ListSingleItem } from './ListSingleItem'
 import { ListSelectionButton } from './ListSelectionButton'
@@ -13,17 +13,16 @@ type ListProps = {
   fakeData?: Person[]
 }
 
-export const List = ({
- ...props
-}: ListProps) => {
-  // const { data } = fetchDataResponse // data.people.map for mapping out actual data
-  const data = props.fakeData
+export const List = ({ ...props }: ListProps) => {
+  const { data } = props.fetchDataResponse // data.people.map for mapping out actual data
+  // const data = props.fakeData
+  console.log(data)
 
   return (
     <div className="flex-wrapper flex h-[33rem] justify-center overflow-auto lg:h-[35rem]">
       <div className="list-container lg:grid lg:grid-cols-2 lg:gap-2">
         {data &&
-          data.map((person: Person, index: number) => (
+          data.people.map((person: Person, index: number) => (
             <div key={index} className="flex items-center gap-2 py-2">
               <ListSelectionButton
                 {...props}

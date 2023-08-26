@@ -27,6 +27,9 @@ const _MainPage = ({ ...props }: _MainPageProps) => {
     props.fetchPeople({ input: { filter: '', argument: '' } })
   }, [])
 
+  // const { data } = props.fetchDataResponse
+  // console.log(data)
+
   return (
     <div className="mainpage-wrapper col-span-8 row-span-5 flex justify-center">
       <div className="main-page mx-4 w-full rounded-lg bg-slate-50 p-1">

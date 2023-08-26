@@ -11,7 +11,9 @@ const app = express()
 // const mongoConnectionString = process.env.MONGO_CONNECTION_STRING
 // can't pass the env to a const ?
 
-mongoose.connect(process.env.MONGO_CONNECTION_STRING)
+mongoose.connect(
+    'mongodb+srv://jacobuskim:JSLY6bccVaDUZjpj@dashboard.ujdqfva.mongodb.net/?retryWrites=true&w=majority'
+)
 mongoose.connection.once('open', () => {
     console.log('Connected to the database')
 })

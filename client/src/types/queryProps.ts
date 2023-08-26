@@ -10,9 +10,7 @@ export type inputProps = {
 export type fetchDataProps = {
   loading?: boolean
   error?: ApolloError
-  data?: {
-    people: Person[]
-  }
+  data?: { people: [] }
 }
 
 export type singleDataProps = {

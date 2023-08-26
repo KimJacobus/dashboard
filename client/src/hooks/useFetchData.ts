@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useQuery } from '@apollo/client'
-import { getPeopleQuery } from '../queries/queries'
+import { getPeopleQuery, PEOPLE } from '../queries/queries'
 //types
 import { inputProps, fetchDataProps } from '../types/queryProps'
 import { Person } from '../types/queryProps'
@@ -19,33 +19,37 @@ export const useFetchData = () => {
   })
   const [fakeData, setFakeData] = useState<Person[] | undefined>([])
 
-  console.log(variables)
+  // const fakeDataQuery = ({ variables }: { variables: variableTypes }): Person[] | undefined => {
+  //   if (!peopleData) return
 
-  const fakeDataQuery = ({ variables }: { variables: variableTypes }): Person[] | undefined => {
-    if (!peopleData) return
+  //   const fakePeopledata = peopleData.filter((person) => {
+  //     if (variables.filter === '' && variables.argument === '') {
+  //       return peopleData
+  //     }
+  //     const keys = Object.keys(person)
+  //     return keys.some((key) => {
+  //       return (
+  //         person[key as keyof typeof person] === variables.filter ||
+  //         person[key as keyof typeof person] === variables.argument
+  //       )
+  //     })
+  //   })
+  //   return fakePeopledata
+  // }
 
-    const fakePeopledata = peopleData.filter((person) => {
-      if (variables.filter === '' && variables.argument === '') {
-        return peopleData
-      }
-      const keys = Object.keys(person)
-      return keys.some((key) => {
-        return (
-          person[key as keyof typeof person] === variables.filter ||
-          person[key as keyof typeof person] === variables.argument
-        )
-      })
-    })
-    return fakePeopledata
-  }
+  // useEffect(() => {
+  //   setFakeData(fakeDataQuery({ variables }))
+  // }, [variables])
+
+  const { loading, error, data }: fetchDataProps = useQuery(PEOPLE)
+  console.log('loading', loading)
+  console.log('error', error)
+  console.log('data', data)
 
   useEffect(() => {
-    setFakeData(fakeDataQuery({ variables }))
-  }, [variables])
-
-  const { loading, error, data }: fetchDataProps = useQuery(getPeopleQuery, {
-    variables,
-  })
+    console.log(data);
+    
+  }),[data]
 
   const fetchPeople = ({ input }: inputProps) => {
     setVariables({

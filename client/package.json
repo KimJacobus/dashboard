@@ -9,11 +9,13 @@
     "deploy": "gh-pages -d dist",
     "build": "tsc && vite build",
     "dybd": "tsc && vite build && gh-pages -d dist",
+    "dev:all": "concurrently \"npm run dev\" \"cd ../server/ && nodemon app\"",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
     "@apollo/client": "^3.7.15",
+    "concurrently": "^8.2.1",
     "gh-pages": "^6.0.0",
     "graphql": "^16.6.0",
     "gsap": "^3.11.5",

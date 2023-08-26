@@ -12,7 +12,6 @@ type GridProps = {
 
 export const Grid = ({ fetchDataResponse, fakeData }: GridProps) => {
   const data = fakeData
-  console.log(data)
 
   return (
     <div className="grid-wrapper h-[33rem] overflow-auto lg:h-[35rem]">

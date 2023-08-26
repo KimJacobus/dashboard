@@ -63,8 +63,13 @@ function App() {
           ></Route>
           <Route
             path={routerBasePath + 'models/:id'}
-            // element={<_SingleModelPage fetchPeople={fetchPeople} fetchDataResponse={fetchDataResponse} />}
-            element={<_SingleModelPage fetchPeople={fetchPeople} fakeData={fakeData} />}
+            element={
+              <_SingleModelPage
+                fetchPeople={fetchPeople}
+                fetchDataResponse={fetchDataResponse}
+                fakeData={fakeData}
+              />
+            }
           ></Route>
         </Routes>
       </RootLayout>
