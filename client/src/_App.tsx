@@ -1,5 +1,4 @@
-//react
-import { useState, useEffect } from 'react'
+//react-router
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 //styles
 import './App.css'
@@ -11,6 +10,7 @@ import { _SideBar } from './comps/sidebar/_SideBar'
 import { _SingleModelPage } from './pages/single-modelpage/_SingleModelPage'
 import { BackGround } from './pages/BackGround'
 //hooks
+import { useState } from 'react'
 import { useGridListToggle } from './utils/useGridListToggle'
 import { useListSelectionButton } from './utils/useListSelectionButton'
 import { useDarkModeToggle } from './utils/useDarkModeToggle'
@@ -26,7 +26,7 @@ function App() {
   const { ButtonStates, handleSelectionButton } = useListSelectionButton()
   const { SelectionSelector, selection } = useSelection()
   //hooks
-  const { fetchDataResponse, fetchPeople, fakeData } = useFetchData()
+  const { fetchDataResponse, fetchPeople } = useFetchData()
   //states
   const [SearchModalToggle, setSearchModalToggle] = useState<boolean>(false)
   const [AccountSideBarToggle, setAccountSideBarToggle] = useState<boolean>(false)
@@ -57,19 +57,12 @@ function App() {
                 SelectionSelector={SelectionSelector}
                 fetchDataResponse={fetchDataResponse}
                 fetchPeople={fetchPeople}
-                fakeData={fakeData}
               />
             }
           ></Route>
           <Route
             path={routerBasePath + 'models/:id'}
-            element={
-              <_SingleModelPage
-                fetchPeople={fetchPeople}
-                fetchDataResponse={fetchDataResponse}
-                fakeData={fakeData}
-              />
-            }
+            element={<_SingleModelPage fetchPeople={fetchPeople} fetchDataResponse={fetchDataResponse} />}
           ></Route>
         </Routes>
       </RootLayout>

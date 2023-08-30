@@ -1,7 +1,7 @@
 //comps
 import { NavBar } from './NavBar'
 //types
-import { inputProps } from '../../types/queryProps'
+import { inputProps } from '@type/queryProps'
 
 type _NavProps = {
   AccountSideBarToggle: boolean
@@ -13,14 +13,10 @@ type _NavProps = {
   setAccountSideBarToggle: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const _Nav = ({
-...props
-}: _NavProps) => {
+const _Nav = ({ ...props }: _NavProps) => {
   return (
     <div className="NavBar col-span-8 row-span-1">
-      <NavBar
-      {...props}
-      />
+      <NavBar {...props} />
     </div>
   )
 }

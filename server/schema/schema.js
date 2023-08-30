@@ -56,7 +56,6 @@ const RootQuery = new GraphQLObjectType({
             },
             resolve(parent, args) {
                 if (args.filter === '_id' && ObjectId.isValid(args.argument)) {
-                    // const objID = ObjectId(args.argument)
                     return Person.find({
                         [args.filter]: args.argument,
                     })
@@ -69,9 +68,6 @@ const RootQuery = new GraphQLObjectType({
         },
     },
 })
-
-
-
 
 const Mutation = new GraphQLObjectType({
     name: 'Mutation',

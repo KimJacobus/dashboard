@@ -1,6 +1,7 @@
 import { ApolloError } from '@apollo/client'
 
 export type Person = {
+  __typename?: string
   _id: string
   firstname: string
   lastname: string
@@ -32,13 +33,7 @@ export type inputProps = {
 export type fetchDataProps = {
   loading?: boolean
   error?: ApolloError
-  data?: Person[]
-}
-
-export type singleDataProps = {
-  loading?: boolean
-  error?: ApolloError
-  data: {
-    people: []
+  data?: {
+    people: [Person]
   }
 }

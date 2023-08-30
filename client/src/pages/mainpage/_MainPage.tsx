@@ -1,14 +1,12 @@
 //hooks
-import { useState } from 'react'
 import { useEffect } from 'react'
 //comps
 import { Grid } from './mainpage-comps/grid/Grid'
 import { List } from './mainpage-comps/list/List'
-import _Nav from '@comps/navbar/_Nav'
 import { SelectionToast } from './mainpage-comps/SelectionToast'
 import { MainPageHeader } from './mainpage-comps/mainpage-header/MainPageHeader'
 //types
-import { fetchDataProps, inputProps, Person } from '@type/queryProps'
+import { fetchDataProps, inputProps } from '@type/queryProps'
 
 type _MainPageProps = {
   GridListToggle: boolean
@@ -19,7 +17,6 @@ type _MainPageProps = {
   SelectionSelector: (id: string) => void
   fetchDataResponse: fetchDataProps
   fetchPeople: ({ input }: inputProps) => void
-  fakeData?: Person[]
 }
 
 const _MainPage = ({ ...props }: _MainPageProps) => {

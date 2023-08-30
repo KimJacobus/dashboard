@@ -1,23 +1,27 @@
-import { fetchDataProps, singleDataProps, Person } from '@type/queryProps'
+import { Person } from '@type/queryProps'
 
-export const SingleModel = ({ data }: { data: Person }) => {
-  // Filter out the _id property, not entirely sure if this is worth it
+type SingleModelProps = {
+  data: {
+    people: [Person]
+  }
+}
 
-  console.log(data)
+export const SingleModel = ({ data }: SingleModelProps) => {
+  const filteredData = data.people.map((person: Person) => {
+    const { _id, __typename, ...rest } = person
+    return rest
+  })
 
   return (
     <div className="single-model flex flex-col items-center gap-10 p-10 font-mono">
-      <img className="mb-auto w-40" src={data.pictures as string}></img>
+      <img className="mb-auto w-40" src={filteredData[0].pictures as string}></img>
       <ul>
-        {Object.keys(data).map((key) => (
+        {Object.keys(filteredData[0]).map((key) => (
           <li key={key}>
-            <b>{key}:</b> {data[key as keyof Person]}
+            <b>{key}:</b> {filteredData[0][key as keyof (typeof filteredData)[0]]}
           </li>
         ))}
       </ul>
     </div>
   )
 }
-
-//fakedata
-// const filteredData = Object.fromEntries(Object.entries(data).filter(([key]) => key !== '_id'))

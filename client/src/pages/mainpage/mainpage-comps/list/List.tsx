@@ -1,4 +1,4 @@
-import { fetchDataProps, Person, singleDataProps } from '@type/queryProps'
+import { fetchDataProps, Person } from '@type/queryProps'
 //comps
 import { ListSingleItem } from './ListSingleItem'
 import { ListSelectionButton } from './ListSelectionButton'
@@ -10,7 +10,6 @@ type ListProps = {
   handleSelectionButton: (index: number) => void
   fetchDataResponse: fetchDataProps
   SelectionSelector: (id: string) => void
-  fakeData?: Person[]
 }
 
 export const List = ({ ...props }: ListProps) => {

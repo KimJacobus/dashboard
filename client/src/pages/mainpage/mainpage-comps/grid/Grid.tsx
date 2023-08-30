@@ -6,18 +6,16 @@ import { Person } from '@type/queryProps'
 
 type GridProps = {
   fetchDataResponse: fetchDataProps
-  SelectionSelector: (id: string) => void
-  fakeData?: Person[]
 }
 
-export const Grid = ({ fetchDataResponse, fakeData }: GridProps) => {
-  const data = fakeData
+export const Grid = ({ fetchDataResponse }: GridProps) => {
+  const { error, loading, data } = fetchDataResponse
 
   return (
     <div className="grid-wrapper h-[33rem] overflow-auto lg:h-[35rem]">
       <div className="grid grid-cols-2 gap-3 p-1 lg:grid-cols-4">
         {data &&
-          data.map((person: Person, index: number) => (
+          data.people.map((person: Person, index: number) => (
             <GridSingleItem
               key={index}
               id={person._id as string}
