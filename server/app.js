@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const graphqlHTTP = require('express-graphql')
 const schema = require('./schema/schema')
@@ -6,12 +7,12 @@ const mongoose = require('mongoose')
 
 const app = express()
 
-// const mongoConnectionString = process.env.MONGO_CONNECTION_STRING
+const mongoURI = process.env.MONGO_URI
 // can't pass the env to a const ?
 
-mongoose.connect(
-    'mongodb+srv://jacobuskim:VTbExfbvq7WoxqEF@dashboard.ujdqfva.mongodb.net/dashdb?retryWrites=true&w=majority'
-)
+console.log(mongoURI)
+
+mongoose.connect(mongoURI)
 mongoose.connection.once('open', () => {
     console.log('Connected to the database')
 })
