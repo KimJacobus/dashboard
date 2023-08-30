@@ -4,11 +4,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 //comps
 import _queryTest from './comps/_queryTest'
-import _MainPage from './pages/mainpage/_MainPage'
 import _Nav from './comps/navbar/_Nav'
 import { _SideBar } from './comps/sidebar/_SideBar'
-import { _SingleModelPage } from './pages/single-modelpage/_SingleModelPage'
 import { BackGround } from './pages/BackGround'
+//pages
+import _MainPage from './pages/mainpage/_MainPage'
+import { _SingleModelPage } from './pages/single-modelpage/_SingleModelPage'
+import { _ProjectPage } from './pages/projectpage/_ProjectPage'
 //hooks
 import { useState } from 'react'
 import { useGridListToggle } from './utils/useGridListToggle'
@@ -64,6 +66,8 @@ function App() {
             path={routerBasePath + 'models/:id'}
             element={<_SingleModelPage fetchPeople={fetchPeople} fetchDataResponse={fetchDataResponse} />}
           ></Route>
+          <Route path={routerBasePath + 'projects'} element={<_ProjectPage />}></Route>
+          <Route path={routerBasePath + 'available'} element={<_ProjectPage />}></Route>
         </Routes>
       </RootLayout>
       <BackGround />

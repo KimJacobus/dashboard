@@ -13,9 +13,7 @@ type ListProps = {
 }
 
 export const List = ({ ...props }: ListProps) => {
-  const { data } = props.fetchDataResponse // data.people.map for mapping out actual data
-  // const data = props.fakeData
-  console.log(data)
+  const { data } = props.fetchDataResponse
 
   return (
     <div className="flex-wrapper flex h-[33rem] justify-center overflow-auto lg:h-[35rem]">

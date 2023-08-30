@@ -18,6 +18,9 @@ export const _SingleModelPage = ({ fetchPeople, fetchDataResponse }: SingleModel
     fetchPeople({ input: { filter: '_id', argument: id } })
   }, [id])
 
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error : {error.message}</p>
+
   return (
     <div className="model-page-wrapper col-span-8 row-span-5 flex justify-center rounded-lg">
       <div className="model-page mx-4 w-full rounded-lg bg-slate-50 p-1">

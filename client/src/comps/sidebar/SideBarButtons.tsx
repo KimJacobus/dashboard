@@ -1,12 +1,12 @@
 type SideBarButtonsProps = {
   buttonText: string
-  buttonIcon: string
-  clickHandler: () => void
+  buttonIcon: string 
+  pathHandler: (buttonText: string) => void
 }
 
-export const SideBarButtons = ({ buttonText, buttonIcon, clickHandler }: SideBarButtonsProps) => {
+export const SideBarButtons = ({ buttonText, buttonIcon, pathHandler }: SideBarButtonsProps) => {
   return (
-    <div onClick={() => clickHandler()}>
+    <div onClick={() => pathHandler(buttonText)}>
       <button>
         {buttonIcon}
         {buttonText}
