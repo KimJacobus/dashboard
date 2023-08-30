@@ -8,10 +8,6 @@ const mongoose = require('mongoose')
 const app = express()
 
 const mongoURI = process.env.MONGO_URI
-// can't pass the env to a const ?
-
-console.log(mongoURI)
-
 mongoose.connect(mongoURI)
 mongoose.connection.once('open', () => {
     console.log('Connected to the database')
