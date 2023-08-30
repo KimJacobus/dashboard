@@ -22,7 +22,8 @@
       "@/*": ["./*"],
       "@data/*": ["./src/data/*"],
       "@type/*": ["./src/types/*"],
-      "@comps/*": ["./src/comps/*"]
+      "@comps/*": ["./src/comps/*"],
+      "@queries/*": ["./src/queries/*"]
     }
   },
 

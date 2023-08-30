@@ -18,8 +18,6 @@ const PersonType = new GraphQLObjectType({
     fields: () => ({
         _id: { type: GraphQLString },
         gender: { type: GraphQLString },
-        picture: { type: GraphQLString },
-        availability: { type: GraphQLBoolean },
         firstname: { type: GraphQLString },
         lastname: { type: GraphQLString },
         height: { type: GraphQLString },
@@ -34,6 +32,7 @@ const PersonType = new GraphQLObjectType({
         email: { type: GraphQLString },
         pictures: { type: GraphQLString },
         shoeSize: { type: GraphQLInt },
+        availability: { type: GraphQLBoolean },
         waistSize: { type: GraphQLInt },
         age: { type: GraphQLInt },
     }),
@@ -70,6 +69,9 @@ const RootQuery = new GraphQLObjectType({
         },
     },
 })
+
+
+
 
 const Mutation = new GraphQLObjectType({
     name: 'Mutation',

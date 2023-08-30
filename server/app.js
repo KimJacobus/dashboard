@@ -1,5 +1,3 @@
-const dotenv = require('dotenv')
-dotenv.config()
 const express = require('express')
 const graphqlHTTP = require('express-graphql')
 const schema = require('./schema/schema')
@@ -12,7 +10,7 @@ const app = express()
 // can't pass the env to a const ?
 
 mongoose.connect(
-    'mongodb+srv://jacobuskim:JSLY6bccVaDUZjpj@dashboard.ujdqfva.mongodb.net/?retryWrites=true&w=majority'
+    'mongodb+srv://jacobuskim:VTbExfbvq7WoxqEF@dashboard.ujdqfva.mongodb.net/dashdb?retryWrites=true&w=majority'
 )
 mongoose.connection.once('open', () => {
     console.log('Connected to the database')

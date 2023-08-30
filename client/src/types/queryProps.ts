@@ -1,28 +1,7 @@
 import { ApolloError } from '@apollo/client'
 
-export type inputProps = {
-  input?: {
-    filter?: string
-    argument?: string
-  }
-}
-
-export type fetchDataProps = {
-  loading?: boolean
-  error?: ApolloError
-  data?: { people: [] }
-}
-
-export type singleDataProps = {
-  loading?: boolean
-  error?: ApolloError
-  data: {
-    people: Person[]
-  }
-}
-
 export type Person = {
-  _id?: string
+  _id: string
   firstname: string
   lastname: string
   gender: string
@@ -41,4 +20,25 @@ export type Person = {
   waistSize: string
   age: string
   availability: boolean
+}
+
+export type inputProps = {
+  input?: {
+    filter?: string
+    argument?: string
+  }
+}
+
+export type fetchDataProps = {
+  loading?: boolean
+  error?: ApolloError
+  data?: Person[]
+}
+
+export type singleDataProps = {
+  loading?: boolean
+  error?: ApolloError
+  data: {
+    people: []
+  }
 }
